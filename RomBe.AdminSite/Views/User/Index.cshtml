@@ -1,0 +1,146 @@
+﻿@model IEnumerable<RomBe.Entities.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<br /><br /><br />
+
+@{
+
+    using (Html.BeginForm("SendPush", "User"))
+    {
+        @Html.Label("Select All")
+        <input type="checkbox" name="SelectAll" />
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayName("First name")
+                </th>
+                <th>
+                    @Html.DisplayName("Last name")
+                </th>
+                <th>
+                    @Html.DisplayName("Country")
+                </th>
+
+                <th>
+                    @Html.DisplayName("TimeZone (From UTC)")
+                </th>
+
+                <th>
+                    @Html.DisplayName("To Send")
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country.CountryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocalTime)
+                    </td>
+                    <td>
+                        @*@Html.CheckBox("SendTo_" + item.Email)*@
+                        <input type="checkbox" name="SendTo_@item.Email">
+                    </td>
+
+                    @*<td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+                        </td>*@
+                </tr>
+            }
+
+        </table>
+
+
+
+        <fieldset>
+            <legend>Send Push Notification</legend>
+
+            <table>
+                <tr>
+                    <td>
+                        @Html.Label("Custom Message Title")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextArea("TxtCustomMessageTitle", new { @cols = 80, @rows = 4 })
+                        <label id="numberOfCharTitle"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Label("Custom Message Body")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextArea("TxtCustomMessageBody", new { @cols = 80, @rows = 4 })
+                        <label id="numberOfCharBody"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="SendCustomPushMessage" value="Send Custom Push Message" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top:20px">
+                        <input type="submit" name="SendRegularPushMessage" value="Send Regular Push Message" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+
+}
+
+<script type="text/javascript">
+
+    $(function () {
+        $("input[name='SelectAll']").change(function (event) {  //on click 
+            if (this.checked) { // check select status
+                $('input:checkbox[name^=SendTo_]').each(function () { //loop through each checkbox
+                    this.checked = true;  //select all checkboxes with class "checkbox1"               
+                });
+            } else {
+                $('input:checkbox[name^=SendTo_]').each(function () { //loop through each checkbox
+                    this.checked = false; //deselect all checkboxes with class "checkbox1"                       
+                });
+            }
+        });
+
+        $("#TxtCustomMessageBody").keyup(function (key)
+        {
+            $("#numberOfCharBody").text($("#TxtCustomMessageBody").val().length);
+        });
+        $("#TxtCustomMessageTitle").keyup(function (key) {
+            $("#numberOfCharTitle").text($("#TxtCustomMessageTitle").val().length);
+        });
+
+    });
+</script>

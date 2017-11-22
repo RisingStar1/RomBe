@@ -1,0 +1,57 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+
+</title>
+<head>
+	<link rel="stylesheet" href="page.css" TYPE="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+    <script src="./gory_details.js" type="text/javascript"></script>
+    <script src="./api_calls.js" type="text/javascript"></script>
+   
+</head>
+<body onload="showFileModificationTime(); setupDragAndDrop();">
+
+<div >
+    
+    <div>
+        <div class="details_view">
+            <div class="request_view">
+                <b>Request</b>
+                <textarea id="divRequest" rows="50" cols="80"></textarea>
+            </div>    
+    
+            <div class="response_view">
+                <b>Response</b>
+                <textarea id="divResponse" rows="150" cols="80"></textarea>
+            </div>    
+        </div>
+
+
+        
+
+        
+        <a name="Users" />
+        <div class="test_category">
+        <fieldset>
+            <legend>Users</legend>
+    
+            <div class="test_form">
+                <div class="title">Delete User By Email</div>
+                <form>
+                    <label for="user_userid">Email:</label><input type="text" name="user_userid">
+                    <input type="Button" value="Send" onClick="DeleteUser(this.form.user_userid.value);" >
+                </form>
+            </div>
+
+             
+        </fieldset>
+        </div>
+         
+        
+    <footer id="modifiedDate"></footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80989ff7d5c843cd9388367d34011181" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="RombeModel.Birth" Width="1.5" PointX="7.5" PointY="60.125" />
+        <EntityTypeShape EntityType="RombeModel.Child" Width="1.5" PointX="5.25" PointY="52" />
+        <EntityTypeShape EntityType="RombeModel.ChildActivity" Width="1.5" PointX="7.5" PointY="65.5" />
+        <EntityTypeShape EntityType="RombeModel.ChildActivitiesHistory" Width="1.5" PointX="7.5" PointY="57.125" />
+        <EntityTypeShape EntityType="RombeModel.ChildRealTimeSolutionActivity" Width="1.5" PointX="7.5" PointY="52.75" />
+        <EntityTypeShape EntityType="RombeModel.ChildRealTimeSymptomsActivity" Width="1.5" PointX="10.5" PointY="52.75" />
+        <EntityTypeShape EntityType="RombeModel.Client" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RombeModel.Country" Width="1.5" PointX="0.75" PointY="44.125" />
+        <EntityTypeShape EntityType="RombeModel.CrudUser" Width="1.5" PointX="9" PointY="1" />
+        <EntityTypeShape EntityType="RombeModel.CrudUsersLogin" Width="1.5" PointX="11.25" PointY="1.5" />
+        <EntityTypeShape EntityType="RombeModel.CrudUserType" Width="1.5" PointX="6.75" PointY="1.5" />
+        <EntityTypeShape EntityType="RombeModel.Duplicate" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RombeModel.EmailLog" Width="1.5" PointX="5.25" PointY="44.875" />
+        <EntityTypeShape EntityType="RombeModel.FacebookProvider" Width="1.5" PointX="5.25" PointY="23" />
+        <EntityTypeShape EntityType="RombeModel.Gender" Width="1.5" PointX="0.75" PointY="41.375" />
+        <EntityTypeShape EntityType="RombeModel.GlobalParameter" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RombeModel.GoogleProvider" Width="1.5" PointX="5.25" PointY="42.125" />
+        <EntityTypeShape EntityType="RombeModel.Language" Width="1.5" PointX="0.75" PointY="33.625" />
+        <EntityTypeShape EntityType="RombeModel.Log" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="RombeModel.MonthlyCheckList" Width="1.5" PointX="3" PointY="28.125" />
+        <EntityTypeShape EntityType="RombeModel.MonthlyCheckupList" Width="1.5" PointX="9" PointY="30.125" />
+        <EntityTypeShape EntityType="RombeModel.MonthsList" Width="1.5" PointX="0.75" PointY="26.375" />
+        <EntityTypeShape EntityType="RombeModel.NotificationLog" Width="1.5" PointX="7.5" PointY="42.25" />
+        <EntityTypeShape EntityType="RombeModel.Notification" Width="1.5" PointX="5.25" PointY="57.5" />
+        <EntityTypeShape EntityType="RombeModel.NotificationType" Width="1.5" PointX="3" PointY="58" />
+        <EntityTypeShape EntityType="RombeModel.PeriodType" Width="1.5" PointX="1.5" PointY="22.75" />
+        <EntityTypeShape EntityType="RombeModel.PregnantDetail" Width="1.5" PointX="5.25" PointY="25.75" />
+        <EntityTypeShape EntityType="RombeModel.ProActiveInformation" Width="1.5" PointX="3.75" PointY="10.375" />
+        <EntityTypeShape EntityType="RombeModel.ProActiveInformationContent" Width="1.5" PointX="6" PointY="34" />
+        <EntityTypeShape EntityType="RombeModel.ProActiveType" Width="1.5" PointX="1.5" PointY="11.375" />
+        <EntityTypeShape EntityType="RombeModel.RealTimeLeadingQuestion" Width="1.5" PointX="4.5" PointY="4.125" />
+        <EntityTypeShape EntityType="RombeModel.RealTimeLeadingQuestionContent" Width="1.5" PointX="9" PointY="38" />
+        <EntityTypeShape EntityType="RombeModel.RealTimeSolution" Width="1.5" PointX="5.25" PointY="61.75" />
+        <EntityTypeShape EntityType="RombeModel.RealTimeSolutionContent" Width="1.5" PointX="6" PointY="38" />
+        <EntityTypeShape EntityType="RombeModel.RealTimeSymptom" Width="1.5" PointX="6.75" PointY="5.125" />
+        <EntityTypeShape EntityType="RombeModel.RealTimeSymptomsCongratulation" Width="1.5" PointX="3" PointY="40.125" />
+        <EntityTypeShape EntityType="RombeModel.RealTimeSymptomsContent" Width="1.5" PointX="9" PointY="34" />
+        <EntityTypeShape EntityType="RombeModel.RefreshToken" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RombeModel.State" Width="1.5" PointX="0.75" PointY="38.125" />
+        <EntityTypeShape EntityType="RombeModel.Subscribe" Width="1.5" PointX="6.75" PointY="8.75" />
+        <EntityTypeShape EntityType="RombeModel.SystemMessage" Width="1.5" PointX="6" PointY="29.875" />
+        <EntityTypeShape EntityType="RombeModel.SystemMessagesType" Width="1.5" PointX="3.75" PointY="15.625" />
+        <EntityTypeShape EntityType="RombeModel.TaskCategory" Width="1.5" PointX="0.75" PointY="29.5" />
+        <EntityTypeShape EntityType="RombeModel.Timezone" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="RombeModel.UserDevice" Width="1.5" PointX="5.25" PointY="18.625" />
+        <EntityTypeShape EntityType="RombeModel.UserEmailActivation" Width="1.5" PointX="5.25" PointY="47.5" />
+        <EntityTypeShape EntityType="RombeModel.User" Width="1.5" PointX="3" PointY="31.625" />
+        <AssociationConnector Association="RombeModel.FK_Births_Child" />
+        <AssociationConnector Association="RombeModel.FK__ChildActivitiesHistory__Child" />
+        <AssociationConnector Association="RombeModel.FK_Child_User" />
+        <AssociationConnector Association="RombeModel.FK_ChildActivities_Child" />
+        <AssociationConnector Association="RombeModel.FK_ChildRealTimeSolutionsActivities_Child" />
+        <AssociationConnector Association="RombeModel.FK_ChildRealTimeSymptomsActivities_Child" />
+        <AssociationConnector Association="RombeModel.FK_NotificationLog_Child" />
+        <AssociationConnector Association="RombeModel.FK_ChildRealTimeSolutionsActivities_RealTimeLeadingQuestion" />
+        <AssociationConnector Association="RombeModel.FK_ChildRealTimeSolutionsActivities_RealTimeSymptoms" />
+        <AssociationConnector Association="RombeModel.FK_ChildRealTimeSymptomsActivities_RealTimeLeadingQuestion" />
+        <AssociationConnector Association="RombeModel.FK_ChildRealTimeSymptomsActivities_RealTimeSymptoms" />
+        <AssociationConnector Association="RombeModel.FK_States_Countries" />
+        <AssociationConnector Association="RombeModel.FK_Users_Countries" />
+        <AssociationConnector Association="RombeModel.FK_CrudUsers_CrudUserType" />
+        <AssociationConnector Association="RombeModel.FK_CrudUsersLogins_CrudUsers" />
+        <AssociationConnector Association="RombeModel.Fk_EmailLog_User" />
+        <AssociationConnector Association="RombeModel.FK_UserFacebook_Users" />
+        <AssociationConnector Association="RombeModel.FK_Users_Genders" />
+        <AssociationConnector Association="RombeModel.FK_UserGoogle_Users" />
+        <AssociationConnector Association="RombeModel.FK_MonthlyCheckList_Language" />
+        <AssociationConnector Association="RombeModel.FK_MonthlyCheckupList_Language" />
+        <AssociationConnector Association="RombeModel.FK_ProActiveInformationInformation_Languages" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeLeadingQuestionContent_Languages" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeSolutionContent_Languages" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeSymptomsCongratulations_Languages" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeSymptomsContent_Languages" />
+        <AssociationConnector Association="RombeModel.FK_SystemMessages_Languages" />
+        <AssociationConnector Association="RombeModel.FK_Users_Languages" />
+        <AssociationConnector Association="RombeModel.FK_MonthlyCheckList_Category" />
+        <AssociationConnector Association="RombeModel.FK_MonthlyCheckList_MonthList" />
+        <AssociationConnector Association="RombeModel.FK_MonthlyCheckupList_Category" />
+        <AssociationConnector Association="RombeModel.FK_MonthlyCheckupList_Month" />
+        <AssociationConnector Association="RombeModel.FK_NotificationLog_Notification" />
+        <AssociationConnector Association="RombeModel.FK_NotificationLog_User" />
+        <AssociationConnector Association="RombeModel.FK_Notifications_NotificationTypes" />
+        <AssociationConnector Association="RombeModel.FK_ProActiveInformation_PeriodTypes" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeLeadingQuestion_PeriodTypes" />
+        <AssociationConnector Association="RombeModel.FK_TaskCategories_PeriodTypes" />
+        <AssociationConnector Association="RombeModel.FK_PregnantDetails_User" />
+        <AssociationConnector Association="RombeModel.FK_ProActiveInformation_ProActiveTypes" />
+        <AssociationConnector Association="RombeModel.FK_ProActiveInformation_TaskCategories" />
+        <AssociationConnector Association="RombeModel.FK_ProActiveInformationInformation_ProActiveInformation" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeLeadingQuestion_TaskCategories" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeLeadingQuestionContent_RealTimeSolution" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeSolution_RealTimeLeadingQuestion" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeSymptoms_RealTimeLeadingQuestion" />
+        <AssociationConnector Association="RombeModel.FK_SymptomsCongratulations_RealTimeLeadingQuestionId" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeSolutionContent_RealTimeSolution" />
+        <AssociationConnector Association="RombeModel.FK_RealTimeSymptomsContent_RealTimeSymptoms" />
+        <AssociationConnector Association="RombeModel.FK_Users_States" />
+        <AssociationConnector Association="RombeModel.FK_SystemMessages_SystemMessagesTypes1" />
+        <AssociationConnector Association="RombeModel.FK_UserDevices_Users" />
+        <AssociationConnector Association="RombeModel.FK_UserAccountActivation_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

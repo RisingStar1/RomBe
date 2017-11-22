@@ -1,0 +1,1506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RombeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="RombeEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="IsVersionValid" ReturnType="Collection(Int32)">
+      <Parameter Name="SourceType" Mode="In" Type="String" />
+      <Parameter Name="CurrentVersion" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Births" EntityType="RombeModel.Birth" />
+    <EntitySet Name="Children" EntityType="RombeModel.Child" />
+    <EntitySet Name="ChildActivities" EntityType="RombeModel.ChildActivity" />
+    <EntitySet Name="ChildActivitiesHistories" EntityType="RombeModel.ChildActivitiesHistory" />
+    <EntitySet Name="ChildRealTimeSolutionActivities" EntityType="RombeModel.ChildRealTimeSolutionActivity" />
+    <EntitySet Name="ChildRealTimeSymptomsActivities" EntityType="RombeModel.ChildRealTimeSymptomsActivity" />
+    <EntitySet Name="Clients" EntityType="RombeModel.Client" />
+    <EntitySet Name="Countries" EntityType="RombeModel.Country" />
+    <EntitySet Name="CrudUsers" EntityType="RombeModel.CrudUser" />
+    <EntitySet Name="CrudUsersLogins" EntityType="RombeModel.CrudUsersLogin" />
+    <EntitySet Name="CrudUserTypes" EntityType="RombeModel.CrudUserType" />
+    <EntitySet Name="Duplicates" EntityType="RombeModel.Duplicate" />
+    <EntitySet Name="EmailLogs" EntityType="RombeModel.EmailLog" />
+    <EntitySet Name="FacebookProviders" EntityType="RombeModel.FacebookProvider" />
+    <EntitySet Name="Genders" EntityType="RombeModel.Gender" />
+    <EntitySet Name="GlobalParameters" EntityType="RombeModel.GlobalParameter" />
+    <EntitySet Name="Languages" EntityType="RombeModel.Language" />
+    <EntitySet Name="Logs" EntityType="RombeModel.Log" />
+    <EntitySet Name="MonthlyCheckLists" EntityType="RombeModel.MonthlyCheckList" />
+    <EntitySet Name="MonthlyCheckupLists" EntityType="RombeModel.MonthlyCheckupList" />
+    <EntitySet Name="MonthsLists" EntityType="RombeModel.MonthsList" />
+    <EntitySet Name="NotificationLogs" EntityType="RombeModel.NotificationLog" />
+    <EntitySet Name="Notifications" EntityType="RombeModel.Notification" />
+    <EntitySet Name="NotificationTypes" EntityType="RombeModel.NotificationType" />
+    <EntitySet Name="PeriodTypes" EntityType="RombeModel.PeriodType" />
+    <EntitySet Name="PregnantDetails" EntityType="RombeModel.PregnantDetail" />
+    <EntitySet Name="ProActiveInformations" EntityType="RombeModel.ProActiveInformation" />
+    <EntitySet Name="ProActiveInformationContents" EntityType="RombeModel.ProActiveInformationContent" />
+    <EntitySet Name="ProActiveTypes" EntityType="RombeModel.ProActiveType" />
+    <EntitySet Name="RealTimeLeadingQuestions" EntityType="RombeModel.RealTimeLeadingQuestion" />
+    <EntitySet Name="RealTimeLeadingQuestionContents" EntityType="RombeModel.RealTimeLeadingQuestionContent" />
+    <EntitySet Name="RealTimeSolutions" EntityType="RombeModel.RealTimeSolution" />
+    <EntitySet Name="RealTimeSolutionContents" EntityType="RombeModel.RealTimeSolutionContent" />
+    <EntitySet Name="RealTimeSymptoms" EntityType="RombeModel.RealTimeSymptom" />
+    <EntitySet Name="RealTimeSymptomsCongratulations" EntityType="RombeModel.RealTimeSymptomsCongratulation" />
+    <EntitySet Name="RealTimeSymptomsContents" EntityType="RombeModel.RealTimeSymptomsContent" />
+    <EntitySet Name="RefreshTokens" EntityType="RombeModel.RefreshToken" />
+    <EntitySet Name="States" EntityType="RombeModel.State" />
+    <EntitySet Name="Subscribes" EntityType="RombeModel.Subscribe" />
+    <EntitySet Name="SystemMessages" EntityType="RombeModel.SystemMessage" />
+    <EntitySet Name="SystemMessagesTypes" EntityType="RombeModel.SystemMessagesType" />
+    <EntitySet Name="TaskCategories" EntityType="RombeModel.TaskCategory" />
+    <EntitySet Name="Timezones" EntityType="RombeModel.Timezone" />
+    <EntitySet Name="UserDevices" EntityType="RombeModel.UserDevice" />
+    <EntitySet Name="UserEmailActivations" EntityType="RombeModel.UserEmailActivation" />
+    <EntitySet Name="Users" EntityType="RombeModel.User" />
+    <AssociationSet Name="FK_Births_Child" Association="RombeModel.FK_Births_Child">
+      <End Role="Child" EntitySet="Children" />
+      <End Role="Birth" EntitySet="Births" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChildActivitiesHistory__Child" Association="RombeModel.FK__ChildActivitiesHistory__Child">
+      <End Role="Child" EntitySet="Children" />
+      <End Role="ChildActivitiesHistory" EntitySet="ChildActivitiesHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_User" Association="RombeModel.FK_Child_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Child" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildActivities_Child" Association="RombeModel.FK_ChildActivities_Child">
+      <End Role="Child" EntitySet="Children" />
+      <End Role="ChildActivity" EntitySet="ChildActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSolutionsActivities_Child" Association="RombeModel.FK_ChildRealTimeSolutionsActivities_Child">
+      <End Role="Child" EntitySet="Children" />
+      <End Role="ChildRealTimeSolutionActivity" EntitySet="ChildRealTimeSolutionActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSymptomsActivities_Child" Association="RombeModel.FK_ChildRealTimeSymptomsActivities_Child">
+      <End Role="Child" EntitySet="Children" />
+      <End Role="ChildRealTimeSymptomsActivity" EntitySet="ChildRealTimeSymptomsActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationLog_Child" Association="RombeModel.FK_NotificationLog_Child">
+      <End Role="Child" EntitySet="Children" />
+      <End Role="NotificationLog" EntitySet="NotificationLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSolutionsActivities_RealTimeLeadingQuestion" Association="RombeModel.FK_ChildRealTimeSolutionsActivities_RealTimeLeadingQuestion">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestions" />
+      <End Role="ChildRealTimeSolutionActivity" EntitySet="ChildRealTimeSolutionActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSolutionsActivities_RealTimeSymptoms" Association="RombeModel.FK_ChildRealTimeSolutionsActivities_RealTimeSymptoms">
+      <End Role="RealTimeSolution" EntitySet="RealTimeSolutions" />
+      <End Role="ChildRealTimeSolutionActivity" EntitySet="ChildRealTimeSolutionActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSymptomsActivities_RealTimeLeadingQuestion" Association="RombeModel.FK_ChildRealTimeSymptomsActivities_RealTimeLeadingQuestion">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestions" />
+      <End Role="ChildRealTimeSymptomsActivity" EntitySet="ChildRealTimeSymptomsActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSymptomsActivities_RealTimeSymptoms" Association="RombeModel.FK_ChildRealTimeSymptomsActivities_RealTimeSymptoms">
+      <End Role="RealTimeSymptom" EntitySet="RealTimeSymptoms" />
+      <End Role="ChildRealTimeSymptomsActivity" EntitySet="ChildRealTimeSymptomsActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_States_Countries" Association="RombeModel.FK_States_Countries">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="State" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Countries" Association="RombeModel.FK_Users_Countries">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrudUsers_CrudUserType" Association="RombeModel.FK_CrudUsers_CrudUserType">
+      <End Role="CrudUserType" EntitySet="CrudUserTypes" />
+      <End Role="CrudUser" EntitySet="CrudUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrudUsersLogins_CrudUsers" Association="RombeModel.FK_CrudUsersLogins_CrudUsers">
+      <End Role="CrudUser" EntitySet="CrudUsers" />
+      <End Role="CrudUsersLogin" EntitySet="CrudUsersLogins" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_EmailLog_User" Association="RombeModel.Fk_EmailLog_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="EmailLog" EntitySet="EmailLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserFacebook_Users" Association="RombeModel.FK_UserFacebook_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="FacebookProvider" EntitySet="FacebookProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Genders" Association="RombeModel.FK_Users_Genders">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckList_Language" Association="RombeModel.FK_MonthlyCheckList_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="MonthlyCheckList" EntitySet="MonthlyCheckLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckupList_Language" Association="RombeModel.FK_MonthlyCheckupList_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="MonthlyCheckupList" EntitySet="MonthlyCheckupLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProActiveInformationInformation_Languages" Association="RombeModel.FK_ProActiveInformationInformation_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="ProActiveInformationContent" EntitySet="ProActiveInformationContents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeLeadingQuestionContent_Languages" Association="RombeModel.FK_RealTimeLeadingQuestionContent_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="RealTimeLeadingQuestionContent" EntitySet="RealTimeLeadingQuestionContents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSolutionContent_Languages" Association="RombeModel.FK_RealTimeSolutionContent_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="RealTimeSolutionContent" EntitySet="RealTimeSolutionContents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSymptomsCongratulations_Languages" Association="RombeModel.FK_RealTimeSymptomsCongratulations_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="RealTimeSymptomsCongratulation" EntitySet="RealTimeSymptomsCongratulations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSymptomsContent_Languages" Association="RombeModel.FK_RealTimeSymptomsContent_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="RealTimeSymptomsContent" EntitySet="RealTimeSymptomsContents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemMessages_Languages" Association="RombeModel.FK_SystemMessages_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="SystemMessage" EntitySet="SystemMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Languages" Association="RombeModel.FK_Users_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckList_Category" Association="RombeModel.FK_MonthlyCheckList_Category">
+      <End Role="TaskCategory" EntitySet="TaskCategories" />
+      <End Role="MonthlyCheckList" EntitySet="MonthlyCheckLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckList_MonthList" Association="RombeModel.FK_MonthlyCheckList_MonthList">
+      <End Role="MonthsList" EntitySet="MonthsLists" />
+      <End Role="MonthlyCheckList" EntitySet="MonthlyCheckLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckupList_Category" Association="RombeModel.FK_MonthlyCheckupList_Category">
+      <End Role="TaskCategory" EntitySet="TaskCategories" />
+      <End Role="MonthlyCheckupList" EntitySet="MonthlyCheckupLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckupList_Month" Association="RombeModel.FK_MonthlyCheckupList_Month">
+      <End Role="MonthsList" EntitySet="MonthsLists" />
+      <End Role="MonthlyCheckupList" EntitySet="MonthlyCheckupLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationLog_Notification" Association="RombeModel.FK_NotificationLog_Notification">
+      <End Role="Notification" EntitySet="Notifications" />
+      <End Role="NotificationLog" EntitySet="NotificationLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationLog_User" Association="RombeModel.FK_NotificationLog_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="NotificationLog" EntitySet="NotificationLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notifications_NotificationTypes" Association="RombeModel.FK_Notifications_NotificationTypes">
+      <End Role="NotificationType" EntitySet="NotificationTypes" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProActiveInformation_PeriodTypes" Association="RombeModel.FK_ProActiveInformation_PeriodTypes">
+      <End Role="PeriodType" EntitySet="PeriodTypes" />
+      <End Role="ProActiveInformation" EntitySet="ProActiveInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeLeadingQuestion_PeriodTypes" Association="RombeModel.FK_RealTimeLeadingQuestion_PeriodTypes">
+      <End Role="PeriodType" EntitySet="PeriodTypes" />
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskCategories_PeriodTypes" Association="RombeModel.FK_TaskCategories_PeriodTypes">
+      <End Role="PeriodType" EntitySet="PeriodTypes" />
+      <End Role="TaskCategory" EntitySet="TaskCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PregnantDetails_User" Association="RombeModel.FK_PregnantDetails_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PregnantDetail" EntitySet="PregnantDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProActiveInformation_ProActiveTypes" Association="RombeModel.FK_ProActiveInformation_ProActiveTypes">
+      <End Role="ProActiveType" EntitySet="ProActiveTypes" />
+      <End Role="ProActiveInformation" EntitySet="ProActiveInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProActiveInformation_TaskCategories" Association="RombeModel.FK_ProActiveInformation_TaskCategories">
+      <End Role="TaskCategory" EntitySet="TaskCategories" />
+      <End Role="ProActiveInformation" EntitySet="ProActiveInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProActiveInformationInformation_ProActiveInformation" Association="RombeModel.FK_ProActiveInformationInformation_ProActiveInformation">
+      <End Role="ProActiveInformation" EntitySet="ProActiveInformations" />
+      <End Role="ProActiveInformationContent" EntitySet="ProActiveInformationContents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeLeadingQuestion_TaskCategories" Association="RombeModel.FK_RealTimeLeadingQuestion_TaskCategories">
+      <End Role="TaskCategory" EntitySet="TaskCategories" />
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeLeadingQuestionContent_RealTimeSolution" Association="RombeModel.FK_RealTimeLeadingQuestionContent_RealTimeSolution">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestions" />
+      <End Role="RealTimeLeadingQuestionContent" EntitySet="RealTimeLeadingQuestionContents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSolution_RealTimeLeadingQuestion" Association="RombeModel.FK_RealTimeSolution_RealTimeLeadingQuestion">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestions" />
+      <End Role="RealTimeSolution" EntitySet="RealTimeSolutions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSymptoms_RealTimeLeadingQuestion" Association="RombeModel.FK_RealTimeSymptoms_RealTimeLeadingQuestion">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestions" />
+      <End Role="RealTimeSymptom" EntitySet="RealTimeSymptoms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SymptomsCongratulations_RealTimeLeadingQuestionId" Association="RombeModel.FK_SymptomsCongratulations_RealTimeLeadingQuestionId">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestions" />
+      <End Role="RealTimeSymptomsCongratulation" EntitySet="RealTimeSymptomsCongratulations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSolutionContent_RealTimeSolution" Association="RombeModel.FK_RealTimeSolutionContent_RealTimeSolution">
+      <End Role="RealTimeSolution" EntitySet="RealTimeSolutions" />
+      <End Role="RealTimeSolutionContent" EntitySet="RealTimeSolutionContents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSymptomsContent_RealTimeSymptoms" Association="RombeModel.FK_RealTimeSymptomsContent_RealTimeSymptoms">
+      <End Role="RealTimeSymptom" EntitySet="RealTimeSymptoms" />
+      <End Role="RealTimeSymptomsContent" EntitySet="RealTimeSymptomsContents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_States" Association="RombeModel.FK_Users_States">
+      <End Role="State" EntitySet="States" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemMessages_SystemMessagesTypes1" Association="RombeModel.FK_SystemMessages_SystemMessagesTypes1">
+      <End Role="SystemMessagesType" EntitySet="SystemMessagesTypes" />
+      <End Role="SystemMessage" EntitySet="SystemMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDevices_Users" Association="RombeModel.FK_UserDevices_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserDevice" EntitySet="UserDevices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAccountActivation_User" Association="RombeModel.FK_UserAccountActivation_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserEmailActivation" EntitySet="UserEmailActivations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Birth">
+    <Key>
+      <PropertyRef Name="ChildId" />
+    </Key>
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <Property Name="PregnantId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Child" Relationship="RombeModel.FK_Births_Child" FromRole="Birth" ToRole="Child" />
+  </EntityType>
+  <EntityType Name="Child">
+    <Key>
+      <PropertyRef Name="ChildId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ChildId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GenderId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Birth" Relationship="RombeModel.FK_Births_Child" FromRole="Child" ToRole="Birth" />
+    <NavigationProperty Name="ChildActivitiesHistories" Relationship="RombeModel.FK__ChildActivitiesHistory__Child" FromRole="Child" ToRole="ChildActivitiesHistory" />
+    <NavigationProperty Name="User" Relationship="RombeModel.FK_Child_User" FromRole="Child" ToRole="User" />
+    <NavigationProperty Name="ChildActivities" Relationship="RombeModel.FK_ChildActivities_Child" FromRole="Child" ToRole="ChildActivity" />
+    <NavigationProperty Name="ChildRealTimeSolutionActivities" Relationship="RombeModel.FK_ChildRealTimeSolutionsActivities_Child" FromRole="Child" ToRole="ChildRealTimeSolutionActivity" />
+    <NavigationProperty Name="ChildRealTimeSymptomsActivities" Relationship="RombeModel.FK_ChildRealTimeSymptomsActivities_Child" FromRole="Child" ToRole="ChildRealTimeSymptomsActivity" />
+    <NavigationProperty Name="NotificationLogs" Relationship="RombeModel.FK_NotificationLog_Child" FromRole="Child" ToRole="NotificationLog" />
+  </EntityType>
+  <EntityType Name="ChildActivity">
+    <Key>
+      <PropertyRef Name="ChildId" />
+      <PropertyRef Name="TaskTypeId" />
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <Property Name="TaskTypeId" Type="Int32" Nullable="false" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="TaskStatusId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Child" Relationship="RombeModel.FK_ChildActivities_Child" FromRole="ChildActivity" ToRole="Child" />
+  </EntityType>
+  <EntityType Name="ChildActivitiesHistory">
+    <Key>
+      <PropertyRef Name="ChildId" />
+      <PropertyRef Name="TaskTypeId" />
+      <PropertyRef Name="TaskId" />
+      <PropertyRef Name="TaskStatusId" />
+    </Key>
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <Property Name="TaskTypeId" Type="Int32" Nullable="false" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="TaskStatusId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Child" Relationship="RombeModel.FK__ChildActivitiesHistory__Child" FromRole="ChildActivitiesHistory" ToRole="Child" />
+  </EntityType>
+  <EntityType Name="ChildRealTimeSolutionActivity">
+    <Key>
+      <PropertyRef Name="ChildId" />
+      <PropertyRef Name="RealTimeSolutionId" />
+      <PropertyRef Name="RealTimeLeadingQuestionId" />
+    </Key>
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <Property Name="RealTimeSolutionId" Type="Int32" Nullable="false" />
+    <Property Name="RealTimeLeadingQuestionId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Child" Relationship="RombeModel.FK_ChildRealTimeSolutionsActivities_Child" FromRole="ChildRealTimeSolutionActivity" ToRole="Child" />
+    <NavigationProperty Name="RealTimeLeadingQuestion" Relationship="RombeModel.FK_ChildRealTimeSolutionsActivities_RealTimeLeadingQuestion" FromRole="ChildRealTimeSolutionActivity" ToRole="RealTimeLeadingQuestion" />
+    <NavigationProperty Name="RealTimeSolution" Relationship="RombeModel.FK_ChildRealTimeSolutionsActivities_RealTimeSymptoms" FromRole="ChildRealTimeSolutionActivity" ToRole="RealTimeSolution" />
+  </EntityType>
+  <EntityType Name="ChildRealTimeSymptomsActivity">
+    <Key>
+      <PropertyRef Name="ChildId" />
+      <PropertyRef Name="RealTimeSymptomsId" />
+      <PropertyRef Name="RealTimeLeadingQuestionId" />
+    </Key>
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <Property Name="RealTimeSymptomsId" Type="Int32" Nullable="false" />
+    <Property Name="RealTimeLeadingQuestionId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Child" Relationship="RombeModel.FK_ChildRealTimeSymptomsActivities_Child" FromRole="ChildRealTimeSymptomsActivity" ToRole="Child" />
+    <NavigationProperty Name="RealTimeLeadingQuestion" Relationship="RombeModel.FK_ChildRealTimeSymptomsActivities_RealTimeLeadingQuestion" FromRole="ChildRealTimeSymptomsActivity" ToRole="RealTimeLeadingQuestion" />
+    <NavigationProperty Name="RealTimeSymptom" Relationship="RombeModel.FK_ChildRealTimeSymptomsActivities_RealTimeSymptoms" FromRole="ChildRealTimeSymptomsActivity" ToRole="RealTimeSymptom" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Secret" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationType" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Int32" Nullable="false" />
+    <Property Name="RefreshTokenLifeTime" Type="Int32" Nullable="false" />
+    <Property Name="AllowedOrigin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="States" Relationship="RombeModel.FK_States_Countries" FromRole="Country" ToRole="State" />
+    <NavigationProperty Name="Users" Relationship="RombeModel.FK_Users_Countries" FromRole="Country" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CrudUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CrudUserTypeId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="WorkingHoursInMinutes" Type="Int32" />
+    <NavigationProperty Name="CrudUserType" Relationship="RombeModel.FK_CrudUsers_CrudUserType" FromRole="CrudUser" ToRole="CrudUserType" />
+    <NavigationProperty Name="CrudUsersLogins" Relationship="RombeModel.FK_CrudUsersLogins_CrudUsers" FromRole="CrudUser" ToRole="CrudUsersLogin" />
+  </EntityType>
+  <EntityType Name="CrudUsersLogin">
+    <Key>
+      <PropertyRef Name="CrudUsersLoginsId" />
+    </Key>
+    <Property Name="CrudUsersLoginsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="LoginTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LogoutTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CrudUser" Relationship="RombeModel.FK_CrudUsersLogins_CrudUsers" FromRole="CrudUsersLogin" ToRole="CrudUser" />
+  </EntityType>
+  <EntityType Name="CrudUserType">
+    <Key>
+      <PropertyRef Name="CrudUserTypeId" />
+    </Key>
+    <Property Name="CrudUserTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CrudUsers" Relationship="RombeModel.FK_CrudUsers_CrudUserType" FromRole="CrudUserType" ToRole="CrudUser" />
+  </EntityType>
+  <EntityType Name="Duplicate">
+    <Key>
+      <PropertyRef Name="RowId" />
+    </Key>
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="TaskType" Type="Int32" Nullable="false" />
+    <Property Name="PaginationType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="EmailLog">
+    <Key>
+      <PropertyRef Name="EmailLogId" />
+    </Key>
+    <Property Name="EmailLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="SendDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="RombeModel.Fk_EmailLog_User" FromRole="EmailLog" ToRole="User" />
+  </EntityType>
+  <EntityType Name="FacebookProvider">
+    <Key>
+      <PropertyRef Name="UserFacebookId" />
+    </Key>
+    <Property Name="UserFacebookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="FacebookUserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="RombeModel.FK_UserFacebook_Users" FromRole="FacebookProvider" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="GenderId" />
+    </Key>
+    <Property Name="GenderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GenderName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Users" Relationship="RombeModel.FK_Users_Genders" FromRole="Gender" ToRole="User" />
+  </EntityType>
+  <EntityType Name="GlobalParameter">
+    <Key>
+      <PropertyRef Name="GlobalParameterId" />
+    </Key>
+    <Property Name="GlobalParameterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParameterName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParameterValueString" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ParameterValueInt" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="MonthlyCheckLists" Relationship="RombeModel.FK_MonthlyCheckList_Language" FromRole="Language" ToRole="MonthlyCheckList" />
+    <NavigationProperty Name="MonthlyCheckupLists" Relationship="RombeModel.FK_MonthlyCheckupList_Language" FromRole="Language" ToRole="MonthlyCheckupList" />
+    <NavigationProperty Name="ProActiveInformationContents" Relationship="RombeModel.FK_ProActiveInformationInformation_Languages" FromRole="Language" ToRole="ProActiveInformationContent" />
+    <NavigationProperty Name="RealTimeLeadingQuestionContents" Relationship="RombeModel.FK_RealTimeLeadingQuestionContent_Languages" FromRole="Language" ToRole="RealTimeLeadingQuestionContent" />
+    <NavigationProperty Name="RealTimeSolutionContents" Relationship="RombeModel.FK_RealTimeSolutionContent_Languages" FromRole="Language" ToRole="RealTimeSolutionContent" />
+    <NavigationProperty Name="RealTimeSymptomsCongratulations" Relationship="RombeModel.FK_RealTimeSymptomsCongratulations_Languages" FromRole="Language" ToRole="RealTimeSymptomsCongratulation" />
+    <NavigationProperty Name="RealTimeSymptomsContents" Relationship="RombeModel.FK_RealTimeSymptomsContent_Languages" FromRole="Language" ToRole="RealTimeSymptomsContent" />
+    <NavigationProperty Name="SystemMessages" Relationship="RombeModel.FK_SystemMessages_Languages" FromRole="Language" ToRole="SystemMessage" />
+    <NavigationProperty Name="Users" Relationship="RombeModel.FK_Users_Languages" FromRole="Language" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Thread" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Level" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Logger" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Exception" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="MonthlyCheckList">
+    <Key>
+      <PropertyRef Name="MonthlyCheckListId" />
+    </Key>
+    <Property Name="MonthlyCheckListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MonthId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Language" Relationship="RombeModel.FK_MonthlyCheckList_Language" FromRole="MonthlyCheckList" ToRole="Language" />
+    <NavigationProperty Name="TaskCategory" Relationship="RombeModel.FK_MonthlyCheckList_Category" FromRole="MonthlyCheckList" ToRole="TaskCategory" />
+    <NavigationProperty Name="MonthsList" Relationship="RombeModel.FK_MonthlyCheckList_MonthList" FromRole="MonthlyCheckList" ToRole="MonthsList" />
+  </EntityType>
+  <EntityType Name="MonthlyCheckupList">
+    <Key>
+      <PropertyRef Name="MonthlyCheckupListId" />
+    </Key>
+    <Property Name="MonthlyCheckupListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MonthId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Language" Relationship="RombeModel.FK_MonthlyCheckupList_Language" FromRole="MonthlyCheckupList" ToRole="Language" />
+    <NavigationProperty Name="TaskCategory" Relationship="RombeModel.FK_MonthlyCheckupList_Category" FromRole="MonthlyCheckupList" ToRole="TaskCategory" />
+    <NavigationProperty Name="MonthsList" Relationship="RombeModel.FK_MonthlyCheckupList_Month" FromRole="MonthlyCheckupList" ToRole="MonthsList" />
+  </EntityType>
+  <EntityType Name="MonthsList">
+    <Key>
+      <PropertyRef Name="MonthId" />
+    </Key>
+    <Property Name="MonthId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Number" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="MonthlyCheckLists" Relationship="RombeModel.FK_MonthlyCheckList_MonthList" FromRole="MonthsList" ToRole="MonthlyCheckList" />
+    <NavigationProperty Name="MonthlyCheckupLists" Relationship="RombeModel.FK_MonthlyCheckupList_Month" FromRole="MonthsList" ToRole="MonthlyCheckupList" />
+  </EntityType>
+  <EntityType Name="NotificationLog">
+    <Key>
+      <PropertyRef Name="NotificationLogId" />
+    </Key>
+    <Property Name="SentDate" Type="DateTime" Precision="3" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="IsSucceeded" Type="Boolean" />
+    <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationId" Type="Int32" Nullable="false" />
+    <Property Name="NotificationLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Child" Relationship="RombeModel.FK_NotificationLog_Child" FromRole="NotificationLog" ToRole="Child" />
+    <NavigationProperty Name="Notification" Relationship="RombeModel.FK_NotificationLog_Notification" FromRole="NotificationLog" ToRole="Notification" />
+    <NavigationProperty Name="User" Relationship="RombeModel.FK_NotificationLog_User" FromRole="NotificationLog" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+    </Key>
+    <Property Name="Title" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationTypeId" Type="Int32" Nullable="false" />
+    <Property Name="NotificationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskTypeId" Type="Byte" Nullable="false" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NotificationLogs" Relationship="RombeModel.FK_NotificationLog_Notification" FromRole="Notification" ToRole="NotificationLog" />
+    <NavigationProperty Name="NotificationType" Relationship="RombeModel.FK_Notifications_NotificationTypes" FromRole="Notification" ToRole="NotificationType" />
+  </EntityType>
+  <EntityType Name="NotificationType">
+    <Key>
+      <PropertyRef Name="NotificationTypeId" />
+    </Key>
+    <Property Name="NotificationTypeId" Type="Int32" Nullable="false" />
+    <Property Name="NotificationType1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Notifications" Relationship="RombeModel.FK_Notifications_NotificationTypes" FromRole="NotificationType" ToRole="Notification" />
+  </EntityType>
+  <EntityType Name="PeriodType">
+    <Key>
+      <PropertyRef Name="PeriodTypeId" />
+    </Key>
+    <Property Name="PeriodTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PeriodTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProActiveInformations" Relationship="RombeModel.FK_ProActiveInformation_PeriodTypes" FromRole="PeriodType" ToRole="ProActiveInformation" />
+    <NavigationProperty Name="RealTimeLeadingQuestions" Relationship="RombeModel.FK_RealTimeLeadingQuestion_PeriodTypes" FromRole="PeriodType" ToRole="RealTimeLeadingQuestion" />
+    <NavigationProperty Name="TaskCategories" Relationship="RombeModel.FK_TaskCategories_PeriodTypes" FromRole="PeriodType" ToRole="TaskCategory" />
+  </EntityType>
+  <EntityType Name="PregnantDetail">
+    <Key>
+      <PropertyRef Name="PregnantDetailsId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="DateOfLastMenstrual" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PregnantDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="RombeModel.FK_PregnantDetails_User" FromRole="PregnantDetail" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ProActiveInformation">
+    <Key>
+      <PropertyRef Name="ProActiveInformationId" />
+    </Key>
+    <Property Name="ProActiveInformationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="PeriodMin" Type="Int32" Nullable="false" />
+    <Property Name="PeriodMax" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PeriodTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ProActiveTypeId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="UniqueId" Type="Int32" />
+    <NavigationProperty Name="PeriodType" Relationship="RombeModel.FK_ProActiveInformation_PeriodTypes" FromRole="ProActiveInformation" ToRole="PeriodType" />
+    <NavigationProperty Name="ProActiveType" Relationship="RombeModel.FK_ProActiveInformation_ProActiveTypes" FromRole="ProActiveInformation" ToRole="ProActiveType" />
+    <NavigationProperty Name="TaskCategory" Relationship="RombeModel.FK_ProActiveInformation_TaskCategories" FromRole="ProActiveInformation" ToRole="TaskCategory" />
+    <NavigationProperty Name="ProActiveInformationContents" Relationship="RombeModel.FK_ProActiveInformationInformation_ProActiveInformation" FromRole="ProActiveInformation" ToRole="ProActiveInformationContent" />
+  </EntityType>
+  <EntityType Name="ProActiveInformationContent">
+    <Key>
+      <PropertyRef Name="ProActiveInformationId" />
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="ProActiveInformationId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="570" FixedLength="false" Unicode="true" />
+    <Property Name="Information" Type="String" MaxLength="570" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Language" Relationship="RombeModel.FK_ProActiveInformationInformation_Languages" FromRole="ProActiveInformationContent" ToRole="Language" />
+    <NavigationProperty Name="ProActiveInformation" Relationship="RombeModel.FK_ProActiveInformationInformation_ProActiveInformation" FromRole="ProActiveInformationContent" ToRole="ProActiveInformation" />
+  </EntityType>
+  <EntityType Name="ProActiveType">
+    <Key>
+      <PropertyRef Name="ProActiveTypeId" />
+    </Key>
+    <Property Name="ProActiveTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ProActiveInformations" Relationship="RombeModel.FK_ProActiveInformation_ProActiveTypes" FromRole="ProActiveType" ToRole="ProActiveInformation" />
+  </EntityType>
+  <EntityType Name="RealTimeLeadingQuestion">
+    <Key>
+      <PropertyRef Name="RealTimeLeadingQuestionId" />
+    </Key>
+    <Property Name="RealTimeLeadingQuestionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="PeriodMin" Type="Int32" Nullable="false" />
+    <Property Name="PeriodMax" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PeriodTypeId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="UniqueId" Type="Int32" />
+    <NavigationProperty Name="ChildRealTimeSolutionActivities" Relationship="RombeModel.FK_ChildRealTimeSolutionsActivities_RealTimeLeadingQuestion" FromRole="RealTimeLeadingQuestion" ToRole="ChildRealTimeSolutionActivity" />
+    <NavigationProperty Name="ChildRealTimeSymptomsActivities" Relationship="RombeModel.FK_ChildRealTimeSymptomsActivities_RealTimeLeadingQuestion" FromRole="RealTimeLeadingQuestion" ToRole="ChildRealTimeSymptomsActivity" />
+    <NavigationProperty Name="PeriodType" Relationship="RombeModel.FK_RealTimeLeadingQuestion_PeriodTypes" FromRole="RealTimeLeadingQuestion" ToRole="PeriodType" />
+    <NavigationProperty Name="TaskCategory" Relationship="RombeModel.FK_RealTimeLeadingQuestion_TaskCategories" FromRole="RealTimeLeadingQuestion" ToRole="TaskCategory" />
+    <NavigationProperty Name="RealTimeLeadingQuestionContents" Relationship="RombeModel.FK_RealTimeLeadingQuestionContent_RealTimeSolution" FromRole="RealTimeLeadingQuestion" ToRole="RealTimeLeadingQuestionContent" />
+    <NavigationProperty Name="RealTimeSolutions" Relationship="RombeModel.FK_RealTimeSolution_RealTimeLeadingQuestion" FromRole="RealTimeLeadingQuestion" ToRole="RealTimeSolution" />
+    <NavigationProperty Name="RealTimeSymptoms" Relationship="RombeModel.FK_RealTimeSymptoms_RealTimeLeadingQuestion" FromRole="RealTimeLeadingQuestion" ToRole="RealTimeSymptom" />
+    <NavigationProperty Name="RealTimeSymptomsCongratulations" Relationship="RombeModel.FK_SymptomsCongratulations_RealTimeLeadingQuestionId" FromRole="RealTimeLeadingQuestion" ToRole="RealTimeSymptomsCongratulation" />
+  </EntityType>
+  <EntityType Name="RealTimeLeadingQuestionContent">
+    <Key>
+      <PropertyRef Name="RealTimeLeadingQuestionId" />
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="RealTimeLeadingQuestionId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="LeadingQuestion" Type="String" MaxLength="570" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TextForNoAnswer" Type="String" MaxLength="570" FixedLength="false" Unicode="true" />
+    <Property Name="TextForYesAnswer" Type="String" MaxLength="570" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Language" Relationship="RombeModel.FK_RealTimeLeadingQuestionContent_Languages" FromRole="RealTimeLeadingQuestionContent" ToRole="Language" />
+    <NavigationProperty Name="RealTimeLeadingQuestion" Relationship="RombeModel.FK_RealTimeLeadingQuestionContent_RealTimeSolution" FromRole="RealTimeLeadingQuestionContent" ToRole="RealTimeLeadingQuestion" />
+  </EntityType>
+  <EntityType Name="RealTimeSolution">
+    <Key>
+      <PropertyRef Name="RealTimeSolutionId" />
+    </Key>
+    <Property Name="RealTimeSolutionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RealTimeLeadingQuestionId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ChildRealTimeSolutionActivities" Relationship="RombeModel.FK_ChildRealTimeSolutionsActivities_RealTimeSymptoms" FromRole="RealTimeSolution" ToRole="ChildRealTimeSolutionActivity" />
+    <NavigationProperty Name="RealTimeLeadingQuestion" Relationship="RombeModel.FK_RealTimeSolution_RealTimeLeadingQuestion" FromRole="RealTimeSolution" ToRole="RealTimeLeadingQuestion" />
+    <NavigationProperty Name="RealTimeSolutionContents" Relationship="RombeModel.FK_RealTimeSolutionContent_RealTimeSolution" FromRole="RealTimeSolution" ToRole="RealTimeSolutionContent" />
+  </EntityType>
+  <EntityType Name="RealTimeSolutionContent">
+    <Key>
+      <PropertyRef Name="RealTimeSolutionId" />
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="RealTimeSolutionId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="SolutionContent" Type="String" MaxLength="570" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Language" Relationship="RombeModel.FK_RealTimeSolutionContent_Languages" FromRole="RealTimeSolutionContent" ToRole="Language" />
+    <NavigationProperty Name="RealTimeSolution" Relationship="RombeModel.FK_RealTimeSolutionContent_RealTimeSolution" FromRole="RealTimeSolutionContent" ToRole="RealTimeSolution" />
+  </EntityType>
+  <EntityType Name="RealTimeSymptom">
+    <Key>
+      <PropertyRef Name="RealTimeSymptomsId" />
+    </Key>
+    <Property Name="RealTimeSymptomsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RealTimeLeadingQuestionId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ChildRealTimeSymptomsActivities" Relationship="RombeModel.FK_ChildRealTimeSymptomsActivities_RealTimeSymptoms" FromRole="RealTimeSymptom" ToRole="ChildRealTimeSymptomsActivity" />
+    <NavigationProperty Name="RealTimeLeadingQuestion" Relationship="RombeModel.FK_RealTimeSymptoms_RealTimeLeadingQuestion" FromRole="RealTimeSymptom" ToRole="RealTimeLeadingQuestion" />
+    <NavigationProperty Name="RealTimeSymptomsContents" Relationship="RombeModel.FK_RealTimeSymptomsContent_RealTimeSymptoms" FromRole="RealTimeSymptom" ToRole="RealTimeSymptomsContent" />
+  </EntityType>
+  <EntityType Name="RealTimeSymptomsCongratulation">
+    <Key>
+      <PropertyRef Name="RealTimeLeadingQuestionId" />
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="RealTimeLeadingQuestionId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="SymptomsCongratulationsMessage" Type="String" MaxLength="570" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Language" Relationship="RombeModel.FK_RealTimeSymptomsCongratulations_Languages" FromRole="RealTimeSymptomsCongratulation" ToRole="Language" />
+    <NavigationProperty Name="RealTimeLeadingQuestion" Relationship="RombeModel.FK_SymptomsCongratulations_RealTimeLeadingQuestionId" FromRole="RealTimeSymptomsCongratulation" ToRole="RealTimeLeadingQuestion" />
+  </EntityType>
+  <EntityType Name="RealTimeSymptomsContent">
+    <Key>
+      <PropertyRef Name="RealTimeSymptomsId" />
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="RealTimeSymptomsId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="SymptomsContent" Type="String" MaxLength="570" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Language" Relationship="RombeModel.FK_RealTimeSymptomsContent_Languages" FromRole="RealTimeSymptomsContent" ToRole="Language" />
+    <NavigationProperty Name="RealTimeSymptom" Relationship="RombeModel.FK_RealTimeSymptomsContent_RealTimeSymptoms" FromRole="RealTimeSymptomsContent" ToRole="RealTimeSymptom" />
+  </EntityType>
+  <EntityType Name="RefreshToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClientId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IssuedUtc" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpiresUtc" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProtectedTicket" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StateAbbreviation" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Country" Relationship="RombeModel.FK_States_Countries" FromRole="State" ToRole="Country" />
+    <NavigationProperty Name="Users" Relationship="RombeModel.FK_Users_States" FromRole="State" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Subscribe">
+    <Key>
+      <PropertyRef Name="SubscribeId" />
+    </Key>
+    <Property Name="SubscribeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SystemMessage">
+    <Key>
+      <PropertyRef Name="SystemMessageId" />
+    </Key>
+    <Property Name="SystemMessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MessageCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SystemMessageTypeId" Type="Int32" Nullable="false" />
+    <Property Name="MessageTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MessageContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OKButtonText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CancelButtonText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Language" Relationship="RombeModel.FK_SystemMessages_Languages" FromRole="SystemMessage" ToRole="Language" />
+    <NavigationProperty Name="SystemMessagesType" Relationship="RombeModel.FK_SystemMessages_SystemMessagesTypes1" FromRole="SystemMessage" ToRole="SystemMessagesType" />
+  </EntityType>
+  <EntityType Name="SystemMessagesType">
+    <Key>
+      <PropertyRef Name="SystemMessageTypeId" />
+    </Key>
+    <Property Name="SystemMessageTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SystemMessageType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SystemMessages" Relationship="RombeModel.FK_SystemMessages_SystemMessagesTypes1" FromRole="SystemMessagesType" ToRole="SystemMessage" />
+  </EntityType>
+  <EntityType Name="TaskCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PeriodTypeId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="MonthlyCheckLists" Relationship="RombeModel.FK_MonthlyCheckList_Category" FromRole="TaskCategory" ToRole="MonthlyCheckList" />
+    <NavigationProperty Name="MonthlyCheckupLists" Relationship="RombeModel.FK_MonthlyCheckupList_Category" FromRole="TaskCategory" ToRole="MonthlyCheckupList" />
+    <NavigationProperty Name="PeriodType" Relationship="RombeModel.FK_TaskCategories_PeriodTypes" FromRole="TaskCategory" ToRole="PeriodType" />
+    <NavigationProperty Name="ProActiveInformations" Relationship="RombeModel.FK_ProActiveInformation_TaskCategories" FromRole="TaskCategory" ToRole="ProActiveInformation" />
+    <NavigationProperty Name="RealTimeLeadingQuestions" Relationship="RombeModel.FK_RealTimeLeadingQuestion_TaskCategories" FromRole="TaskCategory" ToRole="RealTimeLeadingQuestion" />
+  </EntityType>
+  <EntityType Name="Timezone">
+    <Key>
+      <PropertyRef Name="RowId" />
+    </Key>
+    <Property Name="RowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TimezoneName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimezoneStart" Type="Int32" Nullable="false" />
+    <Property Name="TimezoneEnd" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserDevice">
+    <Key>
+      <PropertyRef Name="DeviceId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="DeviceId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DeviceName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OsType" Type="Int32" Nullable="false" />
+    <Property Name="PushToken" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OsVersion" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="RombeModel.FK_UserDevices_Users" FromRole="UserDevice" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserEmailActivation">
+    <Key>
+      <PropertyRef Name="UserAccountActivationId" />
+    </Key>
+    <Property Name="UserAccountActivationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserAccountActivationKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="RombeModel.FK_UserAccountActivation_User" FromRole="UserEmailActivation" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LocalTime" Type="Int32" />
+    <Property Name="BirthDate" Type="DateTime" Precision="3" />
+    <Property Name="GenderId" Type="Int32" />
+    <Property Name="IsPregnant" Type="Boolean" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="SendNotifications" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="RegistartionSource" Type="Byte" Nullable="false" />
+    <Property Name="CampaignSource" Type="Byte" />
+    <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Children" Relationship="RombeModel.FK_Child_User" FromRole="User" ToRole="Child" />
+    <NavigationProperty Name="Country" Relationship="RombeModel.FK_Users_Countries" FromRole="User" ToRole="Country" />
+    <NavigationProperty Name="EmailLogs" Relationship="RombeModel.Fk_EmailLog_User" FromRole="User" ToRole="EmailLog" />
+    <NavigationProperty Name="FacebookProviders" Relationship="RombeModel.FK_UserFacebook_Users" FromRole="User" ToRole="FacebookProvider" />
+    <NavigationProperty Name="Gender" Relationship="RombeModel.FK_Users_Genders" FromRole="User" ToRole="Gender" />
+    <NavigationProperty Name="Language" Relationship="RombeModel.FK_Users_Languages" FromRole="User" ToRole="Language" />
+    <NavigationProperty Name="NotificationLogs" Relationship="RombeModel.FK_NotificationLog_User" FromRole="User" ToRole="NotificationLog" />
+    <NavigationProperty Name="PregnantDetails" Relationship="RombeModel.FK_PregnantDetails_User" FromRole="User" ToRole="PregnantDetail" />
+    <NavigationProperty Name="State" Relationship="RombeModel.FK_Users_States" FromRole="User" ToRole="State" />
+    <NavigationProperty Name="UserDevices" Relationship="RombeModel.FK_UserDevices_Users" FromRole="User" ToRole="UserDevice" />
+    <NavigationProperty Name="UserEmailActivations" Relationship="RombeModel.FK_UserAccountActivation_User" FromRole="User" ToRole="UserEmailActivation" />
+  </EntityType>
+  <Association Name="FK_Births_Child">
+    <End Type="RombeModel.Child" Role="Child" Multiplicity="1" />
+    <End Type="RombeModel.Birth" Role="Birth" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="Birth">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChildActivitiesHistory__Child">
+    <End Type="RombeModel.Child" Role="Child" Multiplicity="1" />
+    <End Type="RombeModel.ChildActivitiesHistory" Role="ChildActivitiesHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="ChildActivitiesHistory">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_User">
+    <End Type="RombeModel.User" Role="User" Multiplicity="1" />
+    <End Type="RombeModel.Child" Role="Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildActivities_Child">
+    <End Type="RombeModel.Child" Role="Child" Multiplicity="1" />
+    <End Type="RombeModel.ChildActivity" Role="ChildActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="ChildActivity">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSolutionsActivities_Child">
+    <End Type="RombeModel.Child" Role="Child" Multiplicity="1" />
+    <End Type="RombeModel.ChildRealTimeSolutionActivity" Role="ChildRealTimeSolutionActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSolutionActivity">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSymptomsActivities_Child">
+    <End Type="RombeModel.Child" Role="Child" Multiplicity="1" />
+    <End Type="RombeModel.ChildRealTimeSymptomsActivity" Role="ChildRealTimeSymptomsActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSymptomsActivity">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationLog_Child">
+    <End Type="RombeModel.Child" Role="Child" Multiplicity="1" />
+    <End Type="RombeModel.NotificationLog" Role="NotificationLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="NotificationLog">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSolutionsActivities_RealTimeLeadingQuestion">
+    <End Type="RombeModel.RealTimeLeadingQuestion" Role="RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Type="RombeModel.ChildRealTimeSolutionActivity" Role="ChildRealTimeSolutionActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSolutionActivity">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSolutionsActivities_RealTimeSymptoms">
+    <End Type="RombeModel.RealTimeSolution" Role="RealTimeSolution" Multiplicity="1" />
+    <End Type="RombeModel.ChildRealTimeSolutionActivity" Role="ChildRealTimeSolutionActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeSolution">
+        <PropertyRef Name="RealTimeSolutionId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSolutionActivity">
+        <PropertyRef Name="RealTimeSolutionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSymptomsActivities_RealTimeLeadingQuestion">
+    <End Type="RombeModel.RealTimeLeadingQuestion" Role="RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Type="RombeModel.ChildRealTimeSymptomsActivity" Role="ChildRealTimeSymptomsActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSymptomsActivity">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSymptomsActivities_RealTimeSymptoms">
+    <End Type="RombeModel.RealTimeSymptom" Role="RealTimeSymptom" Multiplicity="1" />
+    <End Type="RombeModel.ChildRealTimeSymptomsActivity" Role="ChildRealTimeSymptomsActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeSymptom">
+        <PropertyRef Name="RealTimeSymptomsId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSymptomsActivity">
+        <PropertyRef Name="RealTimeSymptomsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_States_Countries">
+    <End Type="RombeModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="RombeModel.State" Role="State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Countries">
+    <End Type="RombeModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="RombeModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrudUsers_CrudUserType">
+    <End Type="RombeModel.CrudUserType" Role="CrudUserType" Multiplicity="1" />
+    <End Type="RombeModel.CrudUser" Role="CrudUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CrudUserType">
+        <PropertyRef Name="CrudUserTypeId" />
+      </Principal>
+      <Dependent Role="CrudUser">
+        <PropertyRef Name="CrudUserTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrudUsersLogins_CrudUsers">
+    <End Type="RombeModel.CrudUser" Role="CrudUser" Multiplicity="1" />
+    <End Type="RombeModel.CrudUsersLogin" Role="CrudUsersLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CrudUser">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="CrudUsersLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_EmailLog_User">
+    <End Type="RombeModel.User" Role="User" Multiplicity="1" />
+    <End Type="RombeModel.EmailLog" Role="EmailLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="EmailLog">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserFacebook_Users">
+    <End Type="RombeModel.User" Role="User" Multiplicity="1" />
+    <End Type="RombeModel.FacebookProvider" Role="FacebookProvider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="FacebookProvider">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Genders">
+    <End Type="RombeModel.Gender" Role="Gender" Multiplicity="0..1" />
+    <End Type="RombeModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="GenderId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckList_Language">
+    <End Type="RombeModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="RombeModel.MonthlyCheckList" Role="MonthlyCheckList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckList">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckupList_Language">
+    <End Type="RombeModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="RombeModel.MonthlyCheckupList" Role="MonthlyCheckupList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckupList">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProActiveInformationInformation_Languages">
+    <End Type="RombeModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="RombeModel.ProActiveInformationContent" Role="ProActiveInformationContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="ProActiveInformationContent">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeLeadingQuestionContent_Languages">
+    <End Type="RombeModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeLeadingQuestionContent" Role="RealTimeLeadingQuestionContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="RealTimeLeadingQuestionContent">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSolutionContent_Languages">
+    <End Type="RombeModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeSolutionContent" Role="RealTimeSolutionContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="RealTimeSolutionContent">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSymptomsCongratulations_Languages">
+    <End Type="RombeModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeSymptomsCongratulation" Role="RealTimeSymptomsCongratulation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="RealTimeSymptomsCongratulation">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSymptomsContent_Languages">
+    <End Type="RombeModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeSymptomsContent" Role="RealTimeSymptomsContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="RealTimeSymptomsContent">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemMessages_Languages">
+    <End Type="RombeModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="RombeModel.SystemMessage" Role="SystemMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="SystemMessage">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Languages">
+    <End Type="RombeModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="RombeModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckList_Category">
+    <End Type="RombeModel.TaskCategory" Role="TaskCategory" Multiplicity="1" />
+    <End Type="RombeModel.MonthlyCheckList" Role="MonthlyCheckList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckList">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckList_MonthList">
+    <End Type="RombeModel.MonthsList" Role="MonthsList" Multiplicity="1" />
+    <End Type="RombeModel.MonthlyCheckList" Role="MonthlyCheckList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonthsList">
+        <PropertyRef Name="MonthId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckList">
+        <PropertyRef Name="MonthId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckupList_Category">
+    <End Type="RombeModel.TaskCategory" Role="TaskCategory" Multiplicity="1" />
+    <End Type="RombeModel.MonthlyCheckupList" Role="MonthlyCheckupList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckupList">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckupList_Month">
+    <End Type="RombeModel.MonthsList" Role="MonthsList" Multiplicity="1" />
+    <End Type="RombeModel.MonthlyCheckupList" Role="MonthlyCheckupList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonthsList">
+        <PropertyRef Name="MonthId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckupList">
+        <PropertyRef Name="MonthId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationLog_Notification">
+    <End Type="RombeModel.Notification" Role="Notification" Multiplicity="1" />
+    <End Type="RombeModel.NotificationLog" Role="NotificationLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notification">
+        <PropertyRef Name="NotificationId" />
+      </Principal>
+      <Dependent Role="NotificationLog">
+        <PropertyRef Name="NotificationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationLog_User">
+    <End Type="RombeModel.User" Role="User" Multiplicity="1" />
+    <End Type="RombeModel.NotificationLog" Role="NotificationLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="NotificationLog">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notifications_NotificationTypes">
+    <End Type="RombeModel.NotificationType" Role="NotificationType" Multiplicity="1" />
+    <End Type="RombeModel.Notification" Role="Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotificationType">
+        <PropertyRef Name="NotificationTypeId" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="NotificationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProActiveInformation_PeriodTypes">
+    <End Type="RombeModel.PeriodType" Role="PeriodType" Multiplicity="1" />
+    <End Type="RombeModel.ProActiveInformation" Role="ProActiveInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PeriodType">
+        <PropertyRef Name="PeriodTypeId" />
+      </Principal>
+      <Dependent Role="ProActiveInformation">
+        <PropertyRef Name="PeriodTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeLeadingQuestion_PeriodTypes">
+    <End Type="RombeModel.PeriodType" Role="PeriodType" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeLeadingQuestion" Role="RealTimeLeadingQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PeriodType">
+        <PropertyRef Name="PeriodTypeId" />
+      </Principal>
+      <Dependent Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="PeriodTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskCategories_PeriodTypes">
+    <End Type="RombeModel.PeriodType" Role="PeriodType" Multiplicity="1" />
+    <End Type="RombeModel.TaskCategory" Role="TaskCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PeriodType">
+        <PropertyRef Name="PeriodTypeId" />
+      </Principal>
+      <Dependent Role="TaskCategory">
+        <PropertyRef Name="PeriodTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PregnantDetails_User">
+    <End Type="RombeModel.User" Role="User" Multiplicity="1" />
+    <End Type="RombeModel.PregnantDetail" Role="PregnantDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="PregnantDetail">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProActiveInformation_ProActiveTypes">
+    <End Type="RombeModel.ProActiveType" Role="ProActiveType" Multiplicity="1" />
+    <End Type="RombeModel.ProActiveInformation" Role="ProActiveInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProActiveType">
+        <PropertyRef Name="ProActiveTypeId" />
+      </Principal>
+      <Dependent Role="ProActiveInformation">
+        <PropertyRef Name="ProActiveTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProActiveInformation_TaskCategories">
+    <End Type="RombeModel.TaskCategory" Role="TaskCategory" Multiplicity="1" />
+    <End Type="RombeModel.ProActiveInformation" Role="ProActiveInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ProActiveInformation">
+        <PropertyRef Name="TaskCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProActiveInformationInformation_ProActiveInformation">
+    <End Type="RombeModel.ProActiveInformation" Role="ProActiveInformation" Multiplicity="1" />
+    <End Type="RombeModel.ProActiveInformationContent" Role="ProActiveInformationContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProActiveInformation">
+        <PropertyRef Name="ProActiveInformationId" />
+      </Principal>
+      <Dependent Role="ProActiveInformationContent">
+        <PropertyRef Name="ProActiveInformationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeLeadingQuestion_TaskCategories">
+    <End Type="RombeModel.TaskCategory" Role="TaskCategory" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeLeadingQuestion" Role="RealTimeLeadingQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="TaskCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeLeadingQuestionContent_RealTimeSolution">
+    <End Type="RombeModel.RealTimeLeadingQuestion" Role="RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeLeadingQuestionContent" Role="RealTimeLeadingQuestionContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="RealTimeLeadingQuestionContent">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSolution_RealTimeLeadingQuestion">
+    <End Type="RombeModel.RealTimeLeadingQuestion" Role="RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeSolution" Role="RealTimeSolution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="RealTimeSolution">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSymptoms_RealTimeLeadingQuestion">
+    <End Type="RombeModel.RealTimeLeadingQuestion" Role="RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeSymptom" Role="RealTimeSymptom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="RealTimeSymptom">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SymptomsCongratulations_RealTimeLeadingQuestionId">
+    <End Type="RombeModel.RealTimeLeadingQuestion" Role="RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeSymptomsCongratulation" Role="RealTimeSymptomsCongratulation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="RealTimeSymptomsCongratulation">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSolutionContent_RealTimeSolution">
+    <End Type="RombeModel.RealTimeSolution" Role="RealTimeSolution" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeSolutionContent" Role="RealTimeSolutionContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeSolution">
+        <PropertyRef Name="RealTimeSolutionId" />
+      </Principal>
+      <Dependent Role="RealTimeSolutionContent">
+        <PropertyRef Name="RealTimeSolutionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSymptomsContent_RealTimeSymptoms">
+    <End Type="RombeModel.RealTimeSymptom" Role="RealTimeSymptom" Multiplicity="1" />
+    <End Type="RombeModel.RealTimeSymptomsContent" Role="RealTimeSymptomsContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeSymptom">
+        <PropertyRef Name="RealTimeSymptomsId" />
+      </Principal>
+      <Dependent Role="RealTimeSymptomsContent">
+        <PropertyRef Name="RealTimeSymptomsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_States">
+    <End Type="RombeModel.State" Role="State" Multiplicity="0..1" />
+    <End Type="RombeModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemMessages_SystemMessagesTypes1">
+    <End Type="RombeModel.SystemMessagesType" Role="SystemMessagesType" Multiplicity="1" />
+    <End Type="RombeModel.SystemMessage" Role="SystemMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemMessagesType">
+        <PropertyRef Name="SystemMessageTypeId" />
+      </Principal>
+      <Dependent Role="SystemMessage">
+        <PropertyRef Name="SystemMessageTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDevices_Users">
+    <End Type="RombeModel.User" Role="User" Multiplicity="1" />
+    <End Type="RombeModel.UserDevice" Role="UserDevice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserDevice">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAccountActivation_User">
+    <End Type="RombeModel.User" Role="User" Multiplicity="1" />
+    <End Type="RombeModel.UserEmailActivation" Role="UserEmailActivation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserEmailActivation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RomBeRepository</name>
+    </assembly>
+    <members>
+        <member name="M:RomBeRepository.UserRepository.GetUserById(System.Int32)">
+            <summary>
+            return null if the id of the user is not exist
+            return the user object if exist
+            </summary>
+            <param name="id">the id of the user</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

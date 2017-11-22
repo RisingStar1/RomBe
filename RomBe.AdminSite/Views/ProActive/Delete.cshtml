@@ -1,0 +1,119 @@
+﻿@model RomBe.Services.Models.ProActiveCreateModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Delete</h2>
+
+
+
+@using (Html.BeginForm("Delete","ProActive"))
+{
+    @Html.AntiForgeryToken()
+    <h1>Question</h1>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ProActiveInformation.ProActiveInformationId)
+        @Html.HiddenFor(model => model.ProActiveInformation.CreatedBy)
+        <div class="form-group">
+            @Html.Label("CategoryName", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.ProActiveInformation.TaskCategory.CategoryName)
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("PeriodMin", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.ProActiveInformation.PeriodMin)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("PeriodMax", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.ProActiveInformation.PeriodMax)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Subject", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.ProActiveInformation.Subject)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("CreatedBy", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.ProActiveInformation.CreatedBy)
+            </div>
+        </div>
+
+    </div>
+
+    <h1>Answer</h1>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ProActiveInformationContent.ProActiveInformationId)
+        @Html.HiddenFor(model=>model.ProActiveInformationContent.LanguageId)
+        
+        <div class="form-group">
+            @Html.Label("Language", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.ProActiveInformationContent.Language.LanguageName)
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Title", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.ProActiveInformationContent.Title)
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Information", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.ProActiveInformationContent.Information, new { @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("CreatedBy", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.ProActiveInformationContent.CreatedBy)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn btn-default" id="DeleteButton"/>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+  @Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    
+        $("#DeleteButton").click(function (e) {
+            var answer = confirm("Are you sure you want to delete?")
+            if (answer) {
+                return;
+            }
+            else {
+                e.preventDefault();
+            }
+        })
+    
+
+</script>

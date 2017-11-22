@@ -1,0 +1,86 @@
+﻿@model RomBe.Entities.SystemMessage
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>SystemMessage</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MessageCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MessageCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MessageTitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MessageTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MessageContent)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MessageContent)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OKButtonText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OKButtonText)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CancelButtonText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CancelButtonText)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Comments)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Comments)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Language.LanguageName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Language.LanguageName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SystemMessagesType.SystemMessageType)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SystemMessagesType.SystemMessageType)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.SystemMessageId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

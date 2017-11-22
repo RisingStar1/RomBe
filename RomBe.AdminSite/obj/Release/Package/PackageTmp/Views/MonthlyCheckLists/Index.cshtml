@@ -1,0 +1,56 @@
+﻿@model IEnumerable<RomBe.Entities.MonthlyCheckList>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayName("Month")
+            </th>
+            <th>
+                @Html.DisplayName("Language")
+            </th>
+            <th>
+                @Html.DisplayName("Task Category")
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthsList.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language.LanguageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskCategory.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MonthlyCheckListId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MonthlyCheckListId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MonthlyCheckListId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

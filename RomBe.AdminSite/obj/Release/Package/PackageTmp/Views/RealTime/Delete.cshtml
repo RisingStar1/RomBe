@@ -1,0 +1,162 @@
+﻿@model RomBe.Services.Models.RealTimeDeleteModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Real Time</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h1>Question</h1>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.RealTimeLeadingQuestion.RealTimeLeadingQuestionId)
+        @Html.HiddenFor(model => model.RealTimeLeadingQuestionContent.RealTimeLeadingQuestionId)
+        @Html.HiddenFor(model => model.RealTimeLeadingQuestionContent.LanguageId)
+        <div class="form-group">
+            @Html.Label("Task Category", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.RealTimeLeadingQuestion.TaskCategory.CategoryName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("PeriodMin", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.RealTimeLeadingQuestion.PeriodMin)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("PeriodMax", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.RealTimeLeadingQuestion.PeriodMax)
+            </div>
+        </div>
+
+       
+
+        <div class="form-group">
+            @Html.Label("Language", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.RealTimeLeadingQuestionContent.Language.LanguageName)
+                @Html.ValidationMessageFor(model => model.RealTimeLeadingQuestionContent.LanguageId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Leading Question", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.RealTimeLeadingQuestionContent.LeadingQuestion)
+            </div>
+        </div>
+
+
+
+    </div>
+
+    
+    <h1>Detection Ways</h1>
+    <div class="form-horizontal" id="detectionWay">
+        <div class="form-group">
+            @Html.Label("Congratulations Message", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.RealTimeDetectionWayCongratulation.DetectionWayCongratulationsMessage)
+            </div>
+        </div>
+
+
+        @for (int index = 0; index < Model.RealTimeDetectionWayContent.Count(); index++)
+{
+    var item = Model.RealTimeDetectionWay.ElementAt(index);
+    ViewBag.id = index;
+    ViewBag.DetectionWayContent = item.RealTimeDetectionWayContents.FirstOrDefault().DetectionWayContent;
+    ViewBag.Rank = item.RealTimeDetectionWayContents.FirstOrDefault().Rank;
+
+    <input type='hidden' id='RealTimeDetectionWay_@(index)__RealTimeDetectionWayId' name='RealTimeDetectionWay[@(index)].RealTimeDetectionWayId' value='@(item.RealTimeDetectionWayId)' />
+    <input type='hidden' id='RealTimeDetectionWay_@(index)__RealTimeLeadingQuestionId' name='RealTimeDetectionWay[@(index)].RealTimeLeadingQuestionId' value='@(item.RealTimeLeadingQuestionId)' />
+    <input type='hidden' id='RealTimeDetectionWayContent_@(index)__CreatedBy' name='RealTimeDetectionWayContent[@(index)].CreatedBy' value='@(item.RealTimeDetectionWayContents.FirstOrDefault().CreatedBy)' />
+    <input type='hidden' id='RealTimeDetectionWayContent_@(index)__LanguageId' name='RealTimeDetectionWayContent[@(index)].LanguageId' value='@(item.RealTimeDetectionWayContents.FirstOrDefault().LanguageId)' />
+    <input type='hidden' id='RealTimeDetectionWayContent_@(index)__RealTimeDetectionWayId' name='RealTimeDetectionWayContent[@(index)].RealTimeDetectionWayId' value='@(item.RealTimeDetectionWayContents.FirstOrDefault().RealTimeDetectionWayId)' />
+
+
+            @Html.Partial("Partial/AddNewDetectionWay", new { ViewBag.id, ViewBag.DetectionWayContent, ViewBag.Rank })
+        }
+
+    </div>
+
+    <h1>Solutions</h1>
+    <div class="form-horizontal" id="solution">
+
+        @for (int index = 0; index < Model.RealTimeSolutionContent.Count(); index++)
+        {
+            var item = Model.RealTimeSolution.ElementAt(index);
+            ViewBag.id = index;
+            ViewBag.SolutionContent = item.RealTimeSolutionContents.FirstOrDefault().SolutionContent;
+            ViewBag.Rank = item.RealTimeSolutionContents.FirstOrDefault().Rank;
+
+            <input type='hidden' id='RealTimeSolution_@(index)__RealTimeSolutionId' name='RealTimeSolution[@(index)].RealTimeSolutionId' value='@(item.RealTimeSolutionId)' />
+            <input type='hidden' id='RealTimeSolution_@(index)__RealTimeLeadingQuestionId' name='RealTimeSolution[@(index)].RealTimeLeadingQuestionId' value='@(item.RealTimeLeadingQuestionId)' />
+            <input type='hidden' id='RealTimeSolutionContent_@(index)__CreatedBy' name='RealTimeSolutionContent[@(index)].CreatedBy' value='@(item.RealTimeSolutionContents.FirstOrDefault().CreatedBy)' />
+            <input type='hidden' id='RealTimeSolutionContent_@(index)__LanguageId' name='RealTimeSolutionContent[@(index)].LanguageId' value='@(item.RealTimeSolutionContents.FirstOrDefault().LanguageId)' />
+            <input type='hidden' id='RealTimeSolutionContent_@(index)__RealTimeSolutionId' name='RealTimeSolutionContent[@(index)].RealTimeSolutionId' value='@(item.RealTimeSolutionContents.FirstOrDefault().RealTimeSolutionId)' />
+
+
+            @Html.Partial("Partial/AddNewSolution", new { ViewBag.id, ViewBag.SolutionContent, ViewBag.Rank })
+        }
+
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Delete" class="btn btn-default" id="DeleteButton" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var elements = $("input[id^='RealTimeSolution'][type='number']");
+        $.each(elements, function (key, value) {
+            $(value).attr("disabled", "disabled");
+        })
+
+        var elements = $("textarea[id^='RealTimeSolutionContent']");
+        $.each(elements, function (key, value) {
+            $(value).attr("disabled", "disabled");
+        })
+
+        var elements = $("input[id^='RealTimeDetectionWay'][type='number']");
+        $.each(elements, function (key, value) {
+            $(value).attr("disabled", "disabled");
+        })
+
+        var elements = $("textarea[id^='RealTimeDetectionWayContent']");
+        $.each(elements, function (key, value) {
+            $(value).attr("disabled", "disabled");
+        })
+
+    });
+
+
+    $("#DeleteButton").click(function (e) {
+        
+        var answer = confirm("Are you sure you want to delete?")
+        if (answer) {
+            return;
+        }
+        else {
+            e.preventDefault();
+        }
+    })
+
+
+</script>
+

@@ -1,0 +1,121 @@
+﻿@model RomBe.Services.Models.ProActiveViewModel
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by subject: @Html.TextBox("subjectSearch")
+        <input type="submit" value="Search" />
+        Or
+        Find by body or action: @Html.TextBox("otherSearch")
+        <input type="submit" value="Search" />
+    </p>
+
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("#")
+        </th>
+
+        <th>
+            @Html.DisplayName("Period Min")
+        </th>
+        <th>
+            @Html.DisplayName("Period Max")
+        </th>
+        <th>
+            @Html.DisplayName("Created By")
+        </th>
+        <th>
+            @Html.DisplayName("Subject")
+        </th>
+        <th>
+            @Html.DisplayName("Language")
+        </th>
+        <th>
+            @Html.DisplayName("Category")
+        </th>
+        <th>
+            @Html.DisplayName("Body")
+        </th>
+        <th>
+            @Html.DisplayName("Action")
+        </th>
+        <th></th>
+    </tr>
+    @{
+        int index = 0;
+        foreach (var item in Model.ProActiveInformation)
+        {
+            index++;
+            <tr>
+                <td>
+                    @index
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PeriodMin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PeriodMax)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProActiveInformationContents
+               .Where(a => a.ProActiveInformationId == item.ProActiveInformationId).FirstOrDefault().Language.LanguageName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaskCategory.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProActiveInformationContents
+               .Where(a => a.ProActiveInformationId == item.ProActiveInformationId).FirstOrDefault().Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProActiveInformationContents
+               .Where(a => a.ProActiveInformationId == item.ProActiveInformationId).FirstOrDefault().Information)
+                </td>
+                <td>
+                    @Html.ActionLink("Copy","Copy", new
+           {
+               id = item.ProActiveInformationId
+           })
+
+
+        @Html.ActionLink("| Edit", "Edit", new
+           {
+               id = item.ProActiveInformationId,
+               languageId = item.ProActiveInformationContents
+                   .Where(a => a.ProActiveInformationId == item.ProActiveInformationId).FirstOrDefault().LanguageId
+           })
+        @if (Request.Cookies.Get("RombeLoginCookie") != null && Request.Cookies.Get("RombeLoginCookie").Values.Get("IsAdmin") == true.ToString())
+        {
+            @Html.ActionLink("| Delete", "Delete", new
+               {
+                   id = item.ProActiveInformationId,
+                   languageId = item.ProActiveInformationContents
+                       .Where(a => a.ProActiveInformationId == item.ProActiveInformationId).FirstOrDefault().LanguageId
+               })
+        }
+    </td>
+</tr>
+        }
+    }
+
+</table>
+<br />

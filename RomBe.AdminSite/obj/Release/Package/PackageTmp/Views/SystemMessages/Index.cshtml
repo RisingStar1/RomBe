@@ -1,0 +1,75 @@
+﻿@model IEnumerable<RomBe.Entities.SystemMessage>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MessageCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MessageTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MessageContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OKButtonText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CancelButtonText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Language.LanguageName)
+            </th>
+            <th>
+                @Html.DisplayName("Type")
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OKButtonText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CancelButtonText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language.LanguageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SystemMessagesType.SystemMessageType)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.SystemMessageId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.SystemMessageId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.SystemMessageId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

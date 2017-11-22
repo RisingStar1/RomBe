@@ -1,0 +1,313 @@
+﻿@model RomBe.Services.Models.RealTimeCreateModel
+@{
+    ViewBag.Title = "Create New Real Time";
+}
+<h2>Create New Real Time</h2>
+<input type="button" onclick="ClearFields()" value="Clear Form" />
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "mainForm", name = "mainForm" }))
+{
+
+    @Html.ValidationSummary()
+    @*@Html.AntiForgeryToken()*@
+
+
+    <h1>Leading Question</h1>    <input type="button" value="Show/Hide" id="leadingQuestionBtn" />
+
+    <div id="leadingQuestion" class="form-horizontal" style="border: 1px dashed black">
+        <hr />
+
+        <div class="form-group">
+            @Html.Label("Period Type", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(p => p.RealTimeLeadingQuestion.PeriodTypeId, (SelectList)ViewBag.PeriodTypeId)
+                @Html.ValidationMessageFor(model => model.RealTimeLeadingQuestion.PeriodTypeId)
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Task Category", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(p => p.RealTimeLeadingQuestion.TaskCategoryId, (SelectList)ViewBag.TaskCategoryId)
+                @Html.ValidationMessageFor(model => model.RealTimeLeadingQuestion.TaskCategoryId)
+                <span style="padding-left:17px;">
+                    <input type="button" onclick="AddNewTaskCategory()" value="Add New Category">
+                </span>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Period Min", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RealTimeLeadingQuestion.PeriodMin, new { min = "0", max = "100" })
+                @Html.ValidationMessageFor(model => model.RealTimeLeadingQuestion.PeriodMin)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Period Max", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RealTimeLeadingQuestion.PeriodMax)
+                @Html.ValidationMessageFor(model => model.RealTimeLeadingQuestion.PeriodMax)
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.Label("Language", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(p => p.RealTimeLeadingQuestionContent.LanguageId, (SelectList)ViewBag.LanguageId, String.Empty)
+                @Html.ValidationMessageFor(model => model.RealTimeLeadingQuestionContent.LanguageId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Leading Question", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.RealTimeLeadingQuestionContent.LeadingQuestion, new { rows = "5", cols = "100", style = "max-width:623px" })
+                @Html.ValidationMessageFor(model => model.RealTimeLeadingQuestionContent.LeadingQuestion)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Subject", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.RealTimeLeadingQuestionContent.Subject, new { rows = "5", cols = "100", style = "max-width:623px" })
+                @Html.ValidationMessageFor(model => model.RealTimeLeadingQuestionContent.Subject)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("User Answer No", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.RealTimeLeadingQuestionContent.TextForNoAnswer, new { rows = "5", cols = "100", style = "max-width:623px" })
+                @Html.ValidationMessageFor(model => model.RealTimeLeadingQuestionContent.TextForNoAnswer)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("User Answer Yes", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.RealTimeLeadingQuestionContent.TextForYesAnswer, new { rows = "5", cols = "100", style = "max-width:623px" })
+                @Html.ValidationMessageFor(model => model.RealTimeLeadingQuestionContent.TextForYesAnswer)
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <h1>Detection Ways</h1>
+    <input type="button" value="Show/Hide" id="detectionWayBtn" />
+
+    <div class="form-horizontal" id="detectionWays" style="border: 1px dashed black">
+        <hr />
+
+        <h3>Detection Way Congratulation Message</h3>
+        @*@Html.ValidationSummary(false)*@
+        <div class="form-group">
+            @Html.Label("Congratulations Message", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.RealTimeSymptomsCongratulation.SymptomsCongratulationsMessage, new { rows = "5", cols = "100", style = "max-width:623px" })
+                @Html.ValidationMessageFor(model => model.RealTimeSymptomsCongratulation.SymptomsCongratulationsMessage)
+            </div>
+        </div>
+
+        <div id="detectionWayContainer0">
+
+            <h3>Detection Way: #1</h3>
+            @*@Html.ValidationSummary(false)*@
+            <div class="form-group">
+                @Html.Label("Rank", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input disabled="disabled" type='number' id='RealTimeSymptomsContent_0__Rank' name='RealTimeSymptomsContent[0].Rank' value="0" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Detection Way Content", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="hidden" class="detectionWaysCounter" />
+                    <textarea rows="5" cols="100" style="max-width:623px" id='RealTimeSymptomsContent_0__SymptomsContent' name='RealTimeSymptomsContent[0].SymptomsContent' data-val="true" data-val-length="Detection Way Content cannot be longer than 500 characters." data-val-length-max="500"></textarea>
+                    <span class="field-validation-valid" data-valmsg-for="RealTimeSymptomsContent[0].SymptomsContent" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <input type="button" value="Delete" onclick="DeleteRow(event)" />
+        </div>
+
+    </div>
+    <input type="button" id="btnAddDetectionWay" value="Add Another Detection Way" />
+
+    <h1>Solutions</h1>
+    <input type="button" value="Show/Hide" id="solutionBtn" />
+
+
+    <div class="form-horizontal" id="solutions" style="border: 1px dashed black">
+        <hr />
+        <div id="solutionContainer0">
+            <h3>Solution: #1</h3>
+            @*@Html.ValidationSummary(false)*@
+            <div class="form-group">
+                @Html.Label("Rank", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input disabled="disabled" type='number' id='RealTimeSolutionContent_0__Rank' name='RealTimeSolutionContent[0].Rank' value="0" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Solution Content", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="hidden" class="solutionCounter" />
+                    <textarea rows="5" cols="100" style="max-width:623px" id='RealTimeSolutionContent_0__SolutionContent' name='RealTimeSolutionContent[0].SolutionContent' data-val="true" data-val-length="Content cannot be longer than 500 characters." data-val-length-max="500"></textarea>
+                    <span class="field-validation-valid" data-valmsg-for="RealTimeSolutionContent[0].SolutionContent" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <input type="button" value="Delete" onclick="DeleteRow(event)" />
+        </div>
+
+    </div>
+    <input type="button" id="btnAddSolution" value="Add Another Solution" />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" id="submit" />
+
+        </div>
+    </div>
+}
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+    function ClearFields() {
+        localStorage.clear();
+        window.location.reload();
+    }
+
+    $(function () {
+        GetTaskCategoryList(false, $("#RealTimeLeadingQuestion_PeriodTypeId").val());
+        SetPlaceHolder();
+        $("#mainForm").sisyphus({
+            locationBased: true,
+            autoRelease: true,
+            timeout: 0
+        });
+
+
+    });
+
+    $('#RealTimeLeadingQuestion_PeriodTypeId').change(function () {
+        GetTaskCategoryList(false, $('#RealTimeLeadingQuestion_PeriodTypeId').val());
+    });
+
+    function SetPlaceHolder() {
+        $("#RealTimeLeadingQuestionContent_LeadingQuestion").val("[BabyName]");
+        $("#RealTimeLeadingQuestionContent_TextForNoAnswer").val("[BabyName]");
+        $("#RealTimeLeadingQuestionContent_TextForYesAnswer").val("[BabyName]");
+    }
+
+    function GetTaskCategoryList(selectAdded, periodType) {
+
+        $.ajax({
+            url: "/RealTime/TaskCategoryList?periodTypeId=" + periodType,
+            type: 'Post',
+            dataType: 'json',
+            success: function (data) {
+
+                // clear all previous options
+                $("#RealTimeLeadingQuestion_TaskCategoryId > option").remove();
+                var options = $('#RealTimeLeadingQuestion_TaskCategoryId');
+
+                $.each(data, function () {
+                    options.append($('<option />').val(this.Value).text(this.Text));
+                });
+
+                if (selectAdded) {
+                    var length = $("#RealTimeLeadingQuestion_TaskCategoryId > option").length;
+                    $('#RealTimeLeadingQuestion_TaskCategoryId >option')[length - 1].selected = true
+                }
+            }
+        });
+    }
+
+    function AddNewTaskCategory() {
+        var periodType = $('#RealTimeLeadingQuestion_PeriodTypeId').val();
+        var win = window.open("../TaskCategory/CreatePopup", "_blank");
+        var pollTimer = window.setInterval(function () {
+            if (win.closed !== false) { // !== is required for compatibility with Opera
+                window.clearInterval(pollTimer);
+                GetTaskCategoryList(true, periodType);
+            }
+        }, 200);
+
+    }
+
+    function DeleteRow(event) {
+        var element = event.target.parentElement;
+        $(element).find("textarea").val("ignore");
+        $(element).hide();
+    }
+
+
+    $("#solutions").toggle();
+    $("#solutionBtn").click(function (e) {
+        $("#solutions").toggle();
+        e.preventDefault();
+    });
+
+    $("#leadingQuestionBtn").click(function (e) {
+        $("#leadingQuestion").toggle();
+        e.preventDefault();
+    });
+    $("#detectionWays").toggle();
+    $("#detectionWayBtn").click(function (e) {
+        $("#detectionWays").toggle();
+        e.preventDefault();
+    });
+
+
+    $("#btnAddSolution").click(function (e) {
+        var itemIndex = $(".solutionCounter").length;
+        e.preventDefault();
+        $.get("@Url.Action("AddNewSolution", "RealTime")/" + itemIndex, function (data) {
+            $("#solutions").append(data);
+        });
+        // RefreshValidation();
+
+
+    });
+
+
+    $("#btnAddDetectionWay").click(function (e) {
+        var itemIndex = $(".detectionWaysCounter").length;
+        e.preventDefault();
+        $.get("@Url.Action("AddNewDetectionWay", "RealTime")/" + itemIndex, function (data) {
+            $("#detectionWays").append(data);
+        });
+        // RefreshValidation();
+
+    });
+
+    function RefreshValidation() {
+        $("#mainForm").removeData("validator");
+        $("#mainForm").removeData("unobtrusiveValidation");
+        $.validator.unobtrusive.parse("#mainForm");
+        return $("#mainForm").validate();
+
+    }
+
+    $("#submit").click(function () {
+        RefreshValidation();
+    });
+
+
+
+</script>
+

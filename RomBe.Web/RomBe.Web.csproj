@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2CBDE604-539E-466E-B48B-34FE31710D3D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RomBe.Web</RootNamespace>
+    <AssemblyName>RomBe.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/a69da299-3095-4d8b-b86d-5fba53e5f399/resourcegroups/Default-Web-WestUS/providers/microsoft.insights/components/rombeweb</ApplicationInsightsResourceId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.1.210, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.1.210, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.1.210, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.1.210, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.1.210, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.0.5639, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Telemetry.Services, Version=0.7.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Telemetry.Services.0.7.1.0\lib\net35\Microsoft.ApplicationInsights.Telemetry.Services.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Telemetry.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Telemetry.Services.0.7.1.0\lib\net35\Microsoft.ApplicationInsights.Telemetry.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Web.TelemetryChannel, Version=1.0.0.4227, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.TelemetryChannel.1.0.0\lib\net45\Microsoft.ApplicationInsights.Web.TelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccountActivation\ActivationFailed.html" />
+    <Content Include="AccountActivation\ActivationSuccesfully.html" />
+    <Content Include="assets\app-icons\fonts\app-icons.eot" />
+    <Content Include="assets\app-icons\fonts\app-icons.ttf" />
+    <Content Include="assets\app-icons\fonts\app-icons.woff" />
+    <Content Include="assets\elegant-icons\fonts\ElegantIcons.eot" />
+    <Content Include="assets\elegant-icons\fonts\ElegantIcons.ttf" />
+    <Content Include="assets\elegant-icons\fonts\ElegantIcons.woff" />
+    <Content Include="assets\elegant-icons\fonts\ElegantIcons.zip" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\lanenar_Lane.eot" />
+    <Content Include="fonts\lanenar_Lane.ttf" />
+    <Content Include="fonts\lanenar_Lane.woff" />
+    <Content Include="images\playstoreicon.png" />
+    <Content Include="images\screenshots\1.old" />
+    <Content Include="images\screenshots\2.old" />
+    <Content Include="images\screenshots\3.old" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="PlayStoreHtmlPages\advertising.html" />
+    <Content Include="PlayStoreHtmlPages\analytics.html" />
+    <Content Include="PlayStoreHtmlPages\control.html" />
+    <Content Include="PlayStoreHtmlPages\css\bootstrap-responsive.css" />
+    <Content Include="PlayStoreHtmlPages\css\bootstrap-responsive.min.css" />
+    <Content Include="PlayStoreHtmlPages\css\bootstrap.css" />
+    <Content Include="PlayStoreHtmlPages\css\bootstrap.min.css" />
+    <Content Include="PlayStoreHtmlPages\css\main.css" />
+    <Content Include="PlayStoreHtmlPages\data-collection.html" />
+    <Content Include="PlayStoreHtmlPages\direct-marketing.html" />
+    <Content Include="PlayStoreHtmlPages\img\arrow-back.png" />
+    <Content Include="PlayStoreHtmlPages\img\arrow-down.png" />
+    <Content Include="PlayStoreHtmlPages\img\arrow-right.png" />
+    <Content Include="PlayStoreHtmlPages\img\arrow-up.png" />
+    <Content Include="PlayStoreHtmlPages\img\contacts-off.png" />
+    <Content Include="PlayStoreHtmlPages\img\contacts-on.png" />
+    <Content Include="PlayStoreHtmlPages\img\cross.png" />
+    <Content Include="PlayStoreHtmlPages\img\email-off.jpg" />
+    <Content Include="PlayStoreHtmlPages\img\email-on.jpg" />
+    <Content Include="PlayStoreHtmlPages\img\glyphicons-halflings-white.png" />
+    <Content Include="PlayStoreHtmlPages\img\glyphicons-halflings.png" />
+    <Content Include="PlayStoreHtmlPages\img\likes-off.png" />
+    <Content Include="PlayStoreHtmlPages\img\likes-on.png" />
+    <Content Include="PlayStoreHtmlPages\img\location-off.png" />
+    <Content Include="PlayStoreHtmlPages\img\location-on.png" />
+    <Content Include="PlayStoreHtmlPages\img\message-off.jpg" />
+    <Content Include="PlayStoreHtmlPages\img\message-on.jpg" />
+    <Content Include="PlayStoreHtmlPages\img\other-off.png" />
+    <Content Include="PlayStoreHtmlPages\img\other-on.png" />
+    <Content Include="PlayStoreHtmlPages\img\phone-off.jpg" />
+    <Content Include="PlayStoreHtmlPages\img\phone-on.jpg" />
+    <Content Include="PlayStoreHtmlPages\img\photos-off.png" />
+    <Content Include="PlayStoreHtmlPages\img\photos-on.png" />
+    <Content Include="PlayStoreHtmlPages\img\sms-off.jpg" />
+    <Content Include="PlayStoreHtmlPages\img\sms-on.jpg" />
+    <Content Include="PlayStoreHtmlPages\img\tick-off.png" />
+    <Content Include="PlayStoreHtmlPages\img\tick-on.png" />
+    <Content Include="PlayStoreHtmlPages\img\tick.png" />
+    <Content Include="PlayStoreHtmlPages\index.html" />
+    <Content Include="PlayStoreHtmlPages\js\bootstrap.js" />
+    <Content Include="PlayStoreHtmlPages\js\bootstrap.min.js" />
+    <Content Include="PlayStoreHtmlPages\js\jquery.min.js" />
+    <Content Include="PlayStoreHtmlPages\js\main.js" />
+    <Content Include="PlayStoreHtmlPages\location-services.html" />
+    <Content Include="PlayStoreHtmlPages\payments.html" />
+    <Content Include="PlayStoreHtmlPages\security.html" />
+    <Content Include="PlayStoreHtmlPages\social-networking.html" />
+    <Content Include="scripts\ai.0.15.0-build58334.js" />
+    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="video\video.mp4_old2" />
+    <Content Include="video\video.ogg" />
+    <Content Include="video\video.ogg_old" />
+    <Content Include="video\video.webm_old" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PlayStoreHtmlPages\docs\README_AppPrivacy.pdf" />
+    <None Include="Properties\PublishProfiles\RombeWeb.pubxml" />
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\app-icons\fonts\app-icons.svg" />
+    <Content Include="assets\app-icons\styles.css" />
+    <Content Include="assets\elegant-icons\fonts\ElegantIcons.svg" />
+    <Content Include="assets\elegant-icons\lte-ie7.js" />
+    <Content Include="assets\elegant-icons\style.css" />
+    <Content Include="css\animate.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\colors\blue-munsell.css" />
+    <Content Include="css\colors\blue.css" />
+    <Content Include="css\colors\green.css" />
+    <Content Include="css\colors\orange.css" />
+    <Content Include="css\colors\purple.css" />
+    <Content Include="css\colors\red.css" />
+    <Content Include="css\colors\slate.css" />
+    <Content Include="css\colors\yellow.css" />
+    <Content Include="css\flipclock.css" />
+    <Content Include="css\nivo-lightbox.css" />
+    <Content Include="css\nivo_themes\default\close%402x.png" />
+    <Content Include="css\nivo_themes\default\close.png" />
+    <Content Include="css\nivo_themes\default\default.css" />
+    <Content Include="css\nivo_themes\default\loading%402x.gif" />
+    <Content Include="css\nivo_themes\default\loading.gif" />
+    <Content Include="css\nivo_themes\default\next%402x.png" />
+    <Content Include="css\nivo_themes\default\next.png" />
+    <Content Include="css\nivo_themes\default\prev%402x.png" />
+    <Content Include="css\nivo_themes\default\prev.png" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\owl.theme.css" />
+    <Content Include="css\patterns\01.png" />
+    <Content Include="css\patterns\02.png" />
+    <Content Include="css\patterns\03.png" />
+    <Content Include="css\patterns\04.png" />
+    <Content Include="css\patterns\05.png" />
+    <Content Include="css\patterns\06.png" />
+    <Content Include="css\patterns\07.png" />
+    <Content Include="css\patterns\08.png" />
+    <Content Include="css\patterns\09.png" />
+    <Content Include="css\patterns\10.png" />
+    <Content Include="css\patterns\11.png" />
+    <Content Include="css\patterns\12.png" />
+    <Content Include="css\patterns\13.png" />
+    <Content Include="css\patterns\14.png" />
+    <Content Include="css\patterns\15.png" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="Email Images\36px_facebook.png" />
+    <Content Include="Email Images\36px_google.png" />
+    <Content Include="Email Images\36px_twitter.png" />
+    <Content Include="Email Images\36px_website.png" />
+    <Content Include="Email Images\Logo.jpg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\lanenar_Lane.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\2-iphone-left.png" />
+    <Content Include="images\2-iphone-right.png" />
+    <Content Include="images\apple-touch-icon-114x114.png" />
+    <Content Include="images\apple-touch-icon-72x72.png" />
+    <Content Include="images\apple-touch-icon.png" />
+    <Content Include="images\bg-1.jpg" />
+    <Content Include="images\bg-2.jpg" />
+    <Content Include="images\bg-3.jpg" />
+    <Content Include="images\clients-pic\1.jpg" />
+    <Content Include="images\clients-pic\2.jpg" />
+    <Content Include="images\clients-pic\3.jpg" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\logo%402x.png" />
+    <Content Include="images\logo-black%402x.png" />
+    <Content Include="images\logo-black.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo_old.png" />
+    <Content Include="images\screenshots\1.jpg" />
+    <Content Include="images\screenshots\2.jpg" />
+    <Content Include="images\screenshots\3.jpg" />
+    <Content Include="images\screenshots\4.jpg" />
+    <Content Include="images\single-android.png" />
+    <Content Include="images\single-iphone.png" />
+    <Content Include="index.html" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\custom.js" />
+    <Content Include="js\flipclock.js" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jquery.ajaxchimp.min.js" />
+    <Content Include="js\jquery.backgroundvideo.min.js" />
+    <Content Include="js\jquery.fitvids.js" />
+    <Content Include="js\jquery.localScroll.min.js" />
+    <Content Include="js\jquery.nav.js" />
+    <Content Include="js\jquery.scrollTo.min.js" />
+    <Content Include="js\jquery.stellar.min.js" />
+    <Content Include="js\matchMedia.js" />
+    <Content Include="js\nivo-lightbox.min.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\respond.min.js" />
+    <Content Include="js\retina.min.js" />
+    <Content Include="js\simple-expand.min.js" />
+    <Content Include="js\smoothscroll.js" />
+    <Content Include="js\wow.min.js" />
+    <Content Include="sendmail.php" />
+    <Content Include="subscribe\email-list.txt" />
+    <Content Include="subscribe\subscribe.php" />
+    <Content Include="video\video.jpg" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BaseApiController.cs" />
+    <Compile Include="Controllers\AccountActivationController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\SubscribeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RomBe.Entities\RomBe.Entities.csproj">
+      <Project>{999a639c-4ac1-4fcc-9651-4b8f068b9c0a}</Project>
+      <Name>RomBe.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RomBe.Helpers\RomBe.Helpers.csproj">
+      <Project>{3fa252ff-fcd9-4062-b9d2-0ee253308012}</Project>
+      <Name>RomBe.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RomBe.Logic\RomBe.Logic.csproj">
+      <Project>{55aa04ed-5455-4848-8a10-9a3640d68f5a}</Project>
+      <Name>RomBe.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11715</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:11529/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

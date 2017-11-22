@@ -1,0 +1,42 @@
+﻿<div class="jumbotron">
+    @*<img src="@Url.Content("~/Content/bg.jpg")" height="360" width="1040">*@
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h1>Real Time</h1>
+        <ul>
+            <li>@Html.ActionLink("Real Time", "Index", "RealTime")</li>
+
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h1>Pro Active</h1>
+        <ul>
+            <li>@Html.ActionLink("Pro Active", "Index", "ProActive")</li>
+        </ul>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h1>Monthly CheckList</h1>
+        <ul>
+            <li>@Html.ActionLink("Monthly CheckList", "Index", "MonthlyCheckLists")</li>
+        </ul>
+
+    </div>
+    <div class="col-md-4">
+        <h1>Monthly CheckupList</h1>
+        <ul>
+            <li>@Html.ActionLink("Monthly CheckupList", "Index", "MonthlyCheckupLists")</li>
+        </ul>
+
+    </div>
+    @*<footer>
+               @if (Request.Cookies.Get("RombeLoginCookie") != null && Request.Cookies.Get("RombeLoginCookie").Values.Get("IsAdmin") == true.ToString())
+        {
+                    <p>@Html.ActionLink("Management", "Admin", "Home")</p>
+                }
+
+            </footer>*@
+</div>

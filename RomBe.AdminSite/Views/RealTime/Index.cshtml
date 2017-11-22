@@ -1,0 +1,211 @@
+﻿@model RomBe.Services.Models.RealTimeViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Real Time </h2>
+
+<p id="createNewLinks">
+    @Html.ActionLink("Create New", "Create", null, new { id = "WithCache" })
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by question: @Html.TextBox("questionSearch")
+        <input type="submit" value="Search" />
+    </p>
+
+    <p>
+        <div style="background-color:red;width:80px;height:80px">Not Active</div>
+    </p>
+    <p>
+        <div style="background-color:green;width:80px;height:80px">Updated</div>
+    </p>
+
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("#")
+        </th>
+        <th>
+            @Html.DisplayName("Leading Question")
+        </th>
+        <th>
+            @Html.DisplayName("Category Name")
+        </th>
+        <th>
+            @Html.DisplayName("PeriodMin")
+        </th>
+        <th>
+            @Html.DisplayName("PeriodMax")
+        </th>
+
+        <th>
+            @Html.DisplayName("Language")
+        </th>
+        <th>
+            @Html.DisplayName("CreatedBy")
+        </th>
+
+        <th></th>
+    </tr>
+    @{
+        int index = 0;
+        foreach (var item in Model.RealTimeLeadingQuestionContent)
+        {
+            index++;
+            DateTime time = new DateTime(2015, 10, 10);
+
+            if (!item.RealTimeLeadingQuestion.IsActive)
+            {
+                <tr style="background-color:red">
+                    <td>
+                       @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestionId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeadingQuestion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.TaskCategory.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.PeriodMin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.PeriodMax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Language.LanguageName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.CreatedBy)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new
+           {
+               id = item.RealTimeLeadingQuestionId,
+               languageId = item.LanguageId
+           })
+
+
+                        @if (Request.Cookies.Get("RombeLoginCookie") != null && Request.Cookies.Get("RombeLoginCookie").Values.Get("IsAdmin") == true.ToString())
+                        {
+                            @Html.ActionLink("| Delete", "Delete", new
+               {
+                   id = item.RealTimeLeadingQuestionId,
+                   languageId = item.LanguageId
+               })
+                        }
+                    </td>
+                </tr>
+            }
+
+
+
+            else if (item.UpdateDate >= time)
+            {
+                <tr style="background-color:green">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestionId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeadingQuestion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.TaskCategory.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.PeriodMin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.PeriodMax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Language.LanguageName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.CreatedBy)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new
+                        {
+                            id = item.RealTimeLeadingQuestionId,
+                            languageId = item.LanguageId
+                        })
+
+
+                        @if (Request.Cookies.Get("RombeLoginCookie") != null && Request.Cookies.Get("RombeLoginCookie").Values.Get("IsAdmin") == true.ToString())
+                        {
+                    @Html.ActionLink("| Delete", "Delete", new
+                    {
+                        id = item.RealTimeLeadingQuestionId,
+                        languageId = item.LanguageId
+                    })
+                        }
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestionId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeadingQuestion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.TaskCategory.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.PeriodMin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.PeriodMax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Language.LanguageName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealTimeLeadingQuestion.CreatedBy)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new
+                        {
+                            id = item.RealTimeLeadingQuestionId,
+                            languageId = item.LanguageId
+                        })
+
+
+                        @if (Request.Cookies.Get("RombeLoginCookie") != null && Request.Cookies.Get("RombeLoginCookie").Values.Get("IsAdmin") == true.ToString())
+                        {
+                    @Html.ActionLink("| Delete", "Delete", new
+                    {
+                        id = item.RealTimeLeadingQuestionId,
+                        languageId = item.LanguageId
+                    })
+                        }
+                    </td>
+                </tr>
+            }
+
+        }
+    }
+</table>
+
+<script>
+    $(function () {
+        if (localStorage.length > 0) {
+            //var link="</br></br><a href='/RealTime/Create' id='NoCache'>Create New</a>";
+            //$("#createNewLinks").append(link);
+            $("#WithCache").text("Continue editing (draft is found)");
+            $("#WithCache").css({ 'color': 'red', 'font-size': '150%' });
+        }
+    });
+</script>
+

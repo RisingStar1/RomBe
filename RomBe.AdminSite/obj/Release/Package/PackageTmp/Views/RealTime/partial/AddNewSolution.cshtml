@@ -1,0 +1,30 @@
+﻿@{    Layout = null; }
+<hr />
+
+<div id="solutionContainer@(ViewBag.id)">
+    <h3>Solution: #@(ViewBag.id + 1)</h3>
+    <div class="form-group">
+        @Html.Label("Rank", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input disabled="disabled" type='number' id='RealTimeSolutionContent_@(ViewBag.id)__Rank' name='RealTimeSolutionContent[@(ViewBag.id)].Rank' value="0" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Solution Content", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="hidden" class="solutionCounter" />
+            <textarea rows="5" cols="100" style="max-width:623px" id='RealTimeSolutionContent_@(ViewBag.id)__SolutionContent' name='RealTimeSolutionContent[@(ViewBag.id)].SolutionContent' data-val="true" data-val-length="Content cannot be longer than 500 characters." data-val-length-max="500">@(ViewBag.SolutionContent)</textarea>
+            <span class="field-validation-valid" data-valmsg-for="RealTimeSolutionContent[@(ViewBag.id)].SolutionContent" data-valmsg-replace="true"></span>
+
+        </div>
+    </div>
+    <input type="button" value="Delete" onclick="DeleteRow(event)" />
+</div>
+<script type="text/javascript">
+    function DeleteRow(event) {
+        var element = event.target.parentElement;
+        $(element).find("textarea").val("remove");
+        $(element).hide();
+    }
+</script>

@@ -1,0 +1,1408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RombeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Births">
+    <Key>
+      <PropertyRef Name="ChildId" />
+    </Key>
+    <Property Name="ChildId" Type="int" Nullable="false" />
+    <Property Name="PregnantId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Child">
+    <Key>
+      <PropertyRef Name="ChildId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="ChildId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="GenderId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChildActivities">
+    <Key>
+      <PropertyRef Name="ChildId" />
+      <PropertyRef Name="TaskTypeId" />
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="ChildId" Type="int" Nullable="false" />
+    <Property Name="TaskTypeId" Type="int" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+    <Property Name="TaskStatusId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChildActivitiesHistory">
+    <Key>
+      <PropertyRef Name="ChildId" />
+      <PropertyRef Name="TaskTypeId" />
+      <PropertyRef Name="TaskId" />
+      <PropertyRef Name="TaskStatusId" />
+    </Key>
+    <Property Name="ChildId" Type="int" Nullable="false" />
+    <Property Name="TaskTypeId" Type="int" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+    <Property Name="TaskStatusId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChildRealTimeSolutionActivities">
+    <Key>
+      <PropertyRef Name="ChildId" />
+      <PropertyRef Name="RealTimeSolutionId" />
+      <PropertyRef Name="RealTimeLeadingQuestionId" />
+    </Key>
+    <Property Name="ChildId" Type="int" Nullable="false" />
+    <Property Name="RealTimeSolutionId" Type="int" Nullable="false" />
+    <Property Name="RealTimeLeadingQuestionId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ChildRealTimeSymptomsActivities">
+    <Key>
+      <PropertyRef Name="ChildId" />
+      <PropertyRef Name="RealTimeSymptomsId" />
+      <PropertyRef Name="RealTimeLeadingQuestionId" />
+    </Key>
+    <Property Name="ChildId" Type="int" Nullable="false" />
+    <Property Name="RealTimeSymptomsId" Type="int" Nullable="false" />
+    <Property Name="RealTimeLeadingQuestionId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Secret" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ApplicationType" Type="int" Nullable="false" />
+    <Property Name="Active" Type="int" Nullable="false" />
+    <Property Name="RefreshTokenLifeTime" Type="int" Nullable="false" />
+    <Property Name="AllowedOrigin" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="DateFormat" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeFormat" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CrudUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CrudUserTypeId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="WorkingHoursInMinutes" Type="int" />
+  </EntityType>
+  <EntityType Name="CrudUsersLogins">
+    <Key>
+      <PropertyRef Name="CrudUsersLoginsId" />
+    </Key>
+    <Property Name="CrudUsersLoginsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="LoginTime" Type="datetime" Nullable="false" />
+    <Property Name="LogoutTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CrudUserType">
+    <Key>
+      <PropertyRef Name="CrudUserTypeId" />
+    </Key>
+    <Property Name="CrudUserTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Duplicates">
+    <Key>
+      <PropertyRef Name="RowId" />
+    </Key>
+    <Property Name="TaskId" Type="int" Nullable="false" />
+    <Property Name="TaskType" Type="int" Nullable="false" />
+    <Property Name="PaginationType" Type="nvarchar" MaxLength="50" />
+    <Property Name="RowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailLog">
+    <Key>
+      <PropertyRef Name="EmailLogId" />
+    </Key>
+    <Property Name="EmailLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="SendDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FacebookProvider">
+    <Key>
+      <PropertyRef Name="UserFacebookId" />
+    </Key>
+    <Property Name="UserFacebookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="FacebookUserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genders">
+    <Key>
+      <PropertyRef Name="GenderId" />
+    </Key>
+    <Property Name="GenderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenderName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GlobalParameters">
+    <Key>
+      <PropertyRef Name="GlobalParameterId" />
+    </Key>
+    <Property Name="GlobalParameterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParameterName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ParameterValueString" Type="nvarchar" MaxLength="200" />
+    <Property Name="ParameterValueInt" Type="int" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LanguageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Thread" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Level" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Logger" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Message" Type="varchar(max)" Nullable="false" />
+    <Property Name="Exception" Type="varchar(max)" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MonthlyCheckList">
+    <Key>
+      <PropertyRef Name="MonthlyCheckListId" />
+    </Key>
+    <Property Name="MonthlyCheckListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MonthId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MonthlyCheckupList">
+    <Key>
+      <PropertyRef Name="MonthlyCheckupListId" />
+    </Key>
+    <Property Name="MonthlyCheckupListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MonthId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MonthsList">
+    <Key>
+      <PropertyRef Name="MonthId" />
+    </Key>
+    <Property Name="MonthId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="date" Nullable="false" />
+    <Property Name="Number" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotificationLog">
+    <Key>
+      <PropertyRef Name="NotificationLogId" />
+    </Key>
+    <Property Name="SentDate" Type="datetime" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="IsSucceeded" Type="bit" />
+    <Property Name="ErrorMessage" Type="nvarchar(max)" />
+    <Property Name="NotificationId" Type="int" Nullable="false" />
+    <Property Name="NotificationLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
+    <Property Name="ChildId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="70" />
+    <Property Name="Text" Type="nvarchar" MaxLength="500" />
+    <Property Name="NotificationTypeId" Type="int" Nullable="false" />
+    <Property Name="NotificationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskTypeId" Type="tinyint" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotificationTypes">
+    <Key>
+      <PropertyRef Name="NotificationTypeId" />
+    </Key>
+    <Property Name="NotificationTypeId" Type="int" Nullable="false" />
+    <Property Name="NotificationType" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PeriodTypes">
+    <Key>
+      <PropertyRef Name="PeriodTypeId" />
+    </Key>
+    <Property Name="PeriodTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PeriodTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PregnantDetails">
+    <Key>
+      <PropertyRef Name="PregnantDetailsId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="DateOfLastMenstrual" Type="datetime" Nullable="false" />
+    <Property Name="PregnantDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProActiveInformation">
+    <Key>
+      <PropertyRef Name="ProActiveInformationId" />
+    </Key>
+    <Property Name="ProActiveInformationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskCategoryId" Type="int" Nullable="false" />
+    <Property Name="PeriodMin" Type="int" Nullable="false" />
+    <Property Name="PeriodMax" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="PeriodTypeId" Type="int" Nullable="false" />
+    <Property Name="ProActiveTypeId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="UniqueId" Type="int" />
+  </EntityType>
+  <EntityType Name="ProActiveInformationContent">
+    <Key>
+      <PropertyRef Name="ProActiveInformationId" />
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="ProActiveInformationId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="570" />
+    <Property Name="Information" Type="nvarchar" MaxLength="570" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProActiveTypes">
+    <Key>
+      <PropertyRef Name="ProActiveTypeId" />
+    </Key>
+    <Property Name="ProActiveTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RealTimeLeadingQuestion">
+    <Key>
+      <PropertyRef Name="RealTimeLeadingQuestionId" />
+    </Key>
+    <Property Name="RealTimeLeadingQuestionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskCategoryId" Type="int" Nullable="false" />
+    <Property Name="PeriodMin" Type="int" Nullable="false" />
+    <Property Name="PeriodMax" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="PeriodTypeId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="UniqueId" Type="int" />
+  </EntityType>
+  <EntityType Name="RealTimeLeadingQuestionContent">
+    <Key>
+      <PropertyRef Name="RealTimeLeadingQuestionId" />
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="RealTimeLeadingQuestionId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="LeadingQuestion" Type="nvarchar" MaxLength="570" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TextForNoAnswer" Type="nvarchar" MaxLength="570" />
+    <Property Name="TextForYesAnswer" Type="nvarchar" MaxLength="570" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RealTimeSolution">
+    <Key>
+      <PropertyRef Name="RealTimeSolutionId" />
+    </Key>
+    <Property Name="RealTimeSolutionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RealTimeLeadingQuestionId" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RealTimeSolutionContent">
+    <Key>
+      <PropertyRef Name="RealTimeSolutionId" />
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="RealTimeSolutionId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="SolutionContent" Type="nvarchar" MaxLength="570" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RealTimeSymptoms">
+    <Key>
+      <PropertyRef Name="RealTimeSymptomsId" />
+    </Key>
+    <Property Name="RealTimeSymptomsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RealTimeLeadingQuestionId" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RealTimeSymptomsCongratulations">
+    <Key>
+      <PropertyRef Name="RealTimeLeadingQuestionId" />
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="RealTimeLeadingQuestionId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="SymptomsCongratulationsMessage" Type="nvarchar" MaxLength="570" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RealTimeSymptomsContent">
+    <Key>
+      <PropertyRef Name="RealTimeSymptomsId" />
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="RealTimeSymptomsId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="SymptomsContent" Type="nvarchar" MaxLength="570" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RefreshTokens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClientId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IssuedUtc" Type="datetime" Nullable="false" />
+    <Property Name="ExpiresUtc" Type="datetime" Nullable="false" />
+    <Property Name="ProtectedTicket" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="StateAbbreviation" Type="nvarchar" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subscribe">
+    <Key>
+      <PropertyRef Name="SubscribeId" />
+    </Key>
+    <Property Name="SubscribeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemMessages">
+    <Key>
+      <PropertyRef Name="SystemMessageId" />
+    </Key>
+    <Property Name="SystemMessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MessageCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SystemMessageTypeId" Type="int" Nullable="false" />
+    <Property Name="MessageTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="MessageContent" Type="nvarchar(max)" />
+    <Property Name="OKButtonText" Type="nvarchar" MaxLength="50" />
+    <Property Name="CancelButtonText" Type="nvarchar" MaxLength="50" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemMessagesTypes">
+    <Key>
+      <PropertyRef Name="SystemMessageTypeId" />
+    </Key>
+    <Property Name="SystemMessageTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SystemMessageType" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TaskCategories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PeriodTypeId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Timezone">
+    <Key>
+      <PropertyRef Name="RowId" />
+    </Key>
+    <Property Name="RowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimezoneName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TimezoneStart" Type="int" Nullable="false" />
+    <Property Name="TimezoneEnd" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserDevices">
+    <Key>
+      <PropertyRef Name="DeviceId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="DeviceId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="DeviceName" Type="nvarchar" MaxLength="500" />
+    <Property Name="OsType" Type="int" Nullable="false" />
+    <Property Name="PushToken" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="OsVersion" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserEmailActivation">
+    <Key>
+      <PropertyRef Name="UserAccountActivationId" />
+    </Key>
+    <Property Name="UserAccountActivationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserAccountActivationKey" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="Age" Type="int" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="LocalTime" Type="int" />
+    <Property Name="BirthDate" Type="datetime" />
+    <Property Name="GenderId" Type="int" />
+    <Property Name="IsPregnant" Type="bit" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="SendNotifications" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="RegistartionSource" Type="tinyint" Nullable="false" />
+    <Property Name="CampaignSource" Type="tinyint" />
+    <Property Name="IpAddress" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__ChildActivitiesHistory__Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1" />
+    <End Role="ChildActivitiesHistory" Type="Self.ChildActivitiesHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="ChildActivitiesHistory">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Births_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1" />
+    <End Role="Births" Type="Self.Births" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="Births">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildActivities_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1" />
+    <End Role="ChildActivities" Type="Self.ChildActivities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="ChildActivities">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSolutionsActivities_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1" />
+    <End Role="ChildRealTimeSolutionActivities" Type="Self.ChildRealTimeSolutionActivities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSolutionActivities">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSolutionsActivities_RealTimeLeadingQuestion">
+    <End Role="RealTimeLeadingQuestion" Type="Self.RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Role="ChildRealTimeSolutionActivities" Type="Self.ChildRealTimeSolutionActivities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSolutionActivities">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSolutionsActivities_RealTimeSymptoms">
+    <End Role="RealTimeSolution" Type="Self.RealTimeSolution" Multiplicity="1" />
+    <End Role="ChildRealTimeSolutionActivities" Type="Self.ChildRealTimeSolutionActivities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeSolution">
+        <PropertyRef Name="RealTimeSolutionId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSolutionActivities">
+        <PropertyRef Name="RealTimeSolutionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSymptomsActivities_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1" />
+    <End Role="ChildRealTimeSymptomsActivities" Type="Self.ChildRealTimeSymptomsActivities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSymptomsActivities">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSymptomsActivities_RealTimeLeadingQuestion">
+    <End Role="RealTimeLeadingQuestion" Type="Self.RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Role="ChildRealTimeSymptomsActivities" Type="Self.ChildRealTimeSymptomsActivities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSymptomsActivities">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildRealTimeSymptomsActivities_RealTimeSymptoms">
+    <End Role="RealTimeSymptoms" Type="Self.RealTimeSymptoms" Multiplicity="1" />
+    <End Role="ChildRealTimeSymptomsActivities" Type="Self.ChildRealTimeSymptomsActivities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeSymptoms">
+        <PropertyRef Name="RealTimeSymptomsId" />
+      </Principal>
+      <Dependent Role="ChildRealTimeSymptomsActivities">
+        <PropertyRef Name="RealTimeSymptomsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrudUsers_CrudUserType">
+    <End Role="CrudUserType" Type="Self.CrudUserType" Multiplicity="1" />
+    <End Role="CrudUsers" Type="Self.CrudUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CrudUserType">
+        <PropertyRef Name="CrudUserTypeId" />
+      </Principal>
+      <Dependent Role="CrudUsers">
+        <PropertyRef Name="CrudUserTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CrudUsersLogins_CrudUsers">
+    <End Role="CrudUsers" Type="Self.CrudUsers" Multiplicity="1" />
+    <End Role="CrudUsersLogins" Type="Self.CrudUsersLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CrudUsers">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="CrudUsersLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_EmailLog_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="EmailLog" Type="Self.EmailLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="EmailLog">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckList_Category">
+    <End Role="TaskCategories" Type="Self.TaskCategories" Multiplicity="1" />
+    <End Role="MonthlyCheckList" Type="Self.MonthlyCheckList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckList">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckList_Language">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="MonthlyCheckList" Type="Self.MonthlyCheckList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckList">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckList_MonthList">
+    <End Role="MonthsList" Type="Self.MonthsList" Multiplicity="1" />
+    <End Role="MonthlyCheckList" Type="Self.MonthlyCheckList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonthsList">
+        <PropertyRef Name="MonthId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckList">
+        <PropertyRef Name="MonthId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckupList_Category">
+    <End Role="TaskCategories" Type="Self.TaskCategories" Multiplicity="1" />
+    <End Role="MonthlyCheckupList" Type="Self.MonthlyCheckupList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckupList">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckupList_Language">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="MonthlyCheckupList" Type="Self.MonthlyCheckupList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckupList">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlyCheckupList_Month">
+    <End Role="MonthsList" Type="Self.MonthsList" Multiplicity="1" />
+    <End Role="MonthlyCheckupList" Type="Self.MonthlyCheckupList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonthsList">
+        <PropertyRef Name="MonthId" />
+      </Principal>
+      <Dependent Role="MonthlyCheckupList">
+        <PropertyRef Name="MonthId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationLog_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1" />
+    <End Role="NotificationLog" Type="Self.NotificationLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="NotificationLog">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationLog_Notification">
+    <End Role="Notifications" Type="Self.Notifications" Multiplicity="1" />
+    <End Role="NotificationLog" Type="Self.NotificationLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notifications">
+        <PropertyRef Name="NotificationId" />
+      </Principal>
+      <Dependent Role="NotificationLog">
+        <PropertyRef Name="NotificationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationLog_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="NotificationLog" Type="Self.NotificationLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="NotificationLog">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notifications_NotificationTypes">
+    <End Role="NotificationTypes" Type="Self.NotificationTypes" Multiplicity="1" />
+    <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotificationTypes">
+        <PropertyRef Name="NotificationTypeId" />
+      </Principal>
+      <Dependent Role="Notifications">
+        <PropertyRef Name="NotificationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PregnantDetails_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="PregnantDetails" Type="Self.PregnantDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="PregnantDetails">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProActiveInformation_PeriodTypes">
+    <End Role="PeriodTypes" Type="Self.PeriodTypes" Multiplicity="1" />
+    <End Role="ProActiveInformation" Type="Self.ProActiveInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PeriodTypes">
+        <PropertyRef Name="PeriodTypeId" />
+      </Principal>
+      <Dependent Role="ProActiveInformation">
+        <PropertyRef Name="PeriodTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProActiveInformation_ProActiveTypes">
+    <End Role="ProActiveTypes" Type="Self.ProActiveTypes" Multiplicity="1" />
+    <End Role="ProActiveInformation" Type="Self.ProActiveInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProActiveTypes">
+        <PropertyRef Name="ProActiveTypeId" />
+      </Principal>
+      <Dependent Role="ProActiveInformation">
+        <PropertyRef Name="ProActiveTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProActiveInformation_TaskCategories">
+    <End Role="TaskCategories" Type="Self.TaskCategories" Multiplicity="1" />
+    <End Role="ProActiveInformation" Type="Self.ProActiveInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ProActiveInformation">
+        <PropertyRef Name="TaskCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProActiveInformationInformation_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="ProActiveInformationContent" Type="Self.ProActiveInformationContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="ProActiveInformationContent">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProActiveInformationInformation_ProActiveInformation">
+    <End Role="ProActiveInformation" Type="Self.ProActiveInformation" Multiplicity="1" />
+    <End Role="ProActiveInformationContent" Type="Self.ProActiveInformationContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProActiveInformation">
+        <PropertyRef Name="ProActiveInformationId" />
+      </Principal>
+      <Dependent Role="ProActiveInformationContent">
+        <PropertyRef Name="ProActiveInformationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeLeadingQuestion_PeriodTypes">
+    <End Role="PeriodTypes" Type="Self.PeriodTypes" Multiplicity="1" />
+    <End Role="RealTimeLeadingQuestion" Type="Self.RealTimeLeadingQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PeriodTypes">
+        <PropertyRef Name="PeriodTypeId" />
+      </Principal>
+      <Dependent Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="PeriodTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeLeadingQuestion_TaskCategories">
+    <End Role="TaskCategories" Type="Self.TaskCategories" Multiplicity="1" />
+    <End Role="RealTimeLeadingQuestion" Type="Self.RealTimeLeadingQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="TaskCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeLeadingQuestionContent_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="RealTimeLeadingQuestionContent" Type="Self.RealTimeLeadingQuestionContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="RealTimeLeadingQuestionContent">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeLeadingQuestionContent_RealTimeSolution">
+    <End Role="RealTimeLeadingQuestion" Type="Self.RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Role="RealTimeLeadingQuestionContent" Type="Self.RealTimeLeadingQuestionContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="RealTimeLeadingQuestionContent">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSolution_RealTimeLeadingQuestion">
+    <End Role="RealTimeLeadingQuestion" Type="Self.RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Role="RealTimeSolution" Type="Self.RealTimeSolution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="RealTimeSolution">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSolutionContent_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="RealTimeSolutionContent" Type="Self.RealTimeSolutionContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="RealTimeSolutionContent">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSolutionContent_RealTimeSolution">
+    <End Role="RealTimeSolution" Type="Self.RealTimeSolution" Multiplicity="1" />
+    <End Role="RealTimeSolutionContent" Type="Self.RealTimeSolutionContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeSolution">
+        <PropertyRef Name="RealTimeSolutionId" />
+      </Principal>
+      <Dependent Role="RealTimeSolutionContent">
+        <PropertyRef Name="RealTimeSolutionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSymptoms_RealTimeLeadingQuestion">
+    <End Role="RealTimeLeadingQuestion" Type="Self.RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Role="RealTimeSymptoms" Type="Self.RealTimeSymptoms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="RealTimeSymptoms">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSymptomsCongratulations_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="RealTimeSymptomsCongratulations" Type="Self.RealTimeSymptomsCongratulations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="RealTimeSymptomsCongratulations">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSymptomsContent_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="RealTimeSymptomsContent" Type="Self.RealTimeSymptomsContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="RealTimeSymptomsContent">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealTimeSymptomsContent_RealTimeSymptoms">
+    <End Role="RealTimeSymptoms" Type="Self.RealTimeSymptoms" Multiplicity="1" />
+    <End Role="RealTimeSymptomsContent" Type="Self.RealTimeSymptomsContent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeSymptoms">
+        <PropertyRef Name="RealTimeSymptomsId" />
+      </Principal>
+      <Dependent Role="RealTimeSymptomsContent">
+        <PropertyRef Name="RealTimeSymptomsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_States_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="States" Type="Self.States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SymptomsCongratulations_RealTimeLeadingQuestionId">
+    <End Role="RealTimeLeadingQuestion" Type="Self.RealTimeLeadingQuestion" Multiplicity="1" />
+    <End Role="RealTimeSymptomsCongratulations" Type="Self.RealTimeSymptomsCongratulations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RealTimeLeadingQuestion">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Principal>
+      <Dependent Role="RealTimeSymptomsCongratulations">
+        <PropertyRef Name="RealTimeLeadingQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemMessages_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="SystemMessages" Type="Self.SystemMessages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="SystemMessages">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemMessages_SystemMessagesTypes1">
+    <End Role="SystemMessagesTypes" Type="Self.SystemMessagesTypes" Multiplicity="1" />
+    <End Role="SystemMessages" Type="Self.SystemMessages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemMessagesTypes">
+        <PropertyRef Name="SystemMessageTypeId" />
+      </Principal>
+      <Dependent Role="SystemMessages">
+        <PropertyRef Name="SystemMessageTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskCategories_PeriodTypes">
+    <End Role="PeriodTypes" Type="Self.PeriodTypes" Multiplicity="1" />
+    <End Role="TaskCategories" Type="Self.TaskCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PeriodTypes">
+        <PropertyRef Name="PeriodTypeId" />
+      </Principal>
+      <Dependent Role="TaskCategories">
+        <PropertyRef Name="PeriodTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAccountActivation_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserEmailActivation" Type="Self.UserEmailActivation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserEmailActivation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDevices_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserDevices" Type="Self.UserDevices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserDevices">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserFacebook_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="FacebookProvider" Type="Self.FacebookProvider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="FacebookProvider">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Genders">
+    <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="GenderId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_States">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetGlobalParameterString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="ParameterName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="IsVersionValid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SourceType" Type="varchar" Mode="In" />
+    <Parameter Name="CurrentVersion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="PadVersion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="v" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="RombeModelStoreContainer">
+    <EntitySet Name="Births" EntityType="Self.Births" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChildActivities" EntityType="Self.ChildActivities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChildActivitiesHistory" EntityType="Self.ChildActivitiesHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChildRealTimeSolutionActivities" EntityType="Self.ChildRealTimeSolutionActivities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChildRealTimeSymptomsActivities" EntityType="Self.ChildRealTimeSymptomsActivities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CrudUsers" EntityType="Self.CrudUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CrudUsersLogins" EntityType="Self.CrudUsersLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CrudUserType" EntityType="Self.CrudUserType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Duplicates" EntityType="Self.Duplicates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailLog" EntityType="Self.EmailLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FacebookProvider" EntityType="Self.FacebookProvider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GlobalParameters" EntityType="Self.GlobalParameters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonthlyCheckList" EntityType="Self.MonthlyCheckList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonthlyCheckupList" EntityType="Self.MonthlyCheckupList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonthsList" EntityType="Self.MonthsList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotificationTypes" EntityType="Self.NotificationTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PeriodTypes" EntityType="Self.PeriodTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PregnantDetails" EntityType="Self.PregnantDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProActiveInformation" EntityType="Self.ProActiveInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProActiveInformationContent" EntityType="Self.ProActiveInformationContent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProActiveTypes" EntityType="Self.ProActiveTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RealTimeLeadingQuestion" EntityType="Self.RealTimeLeadingQuestion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RealTimeLeadingQuestionContent" EntityType="Self.RealTimeLeadingQuestionContent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RealTimeSolution" EntityType="Self.RealTimeSolution" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RealTimeSolutionContent" EntityType="Self.RealTimeSolutionContent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RealTimeSymptoms" EntityType="Self.RealTimeSymptoms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RealTimeSymptomsCongratulations" EntityType="Self.RealTimeSymptomsCongratulations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RealTimeSymptomsContent" EntityType="Self.RealTimeSymptomsContent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefreshTokens" EntityType="Self.RefreshTokens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subscribe" EntityType="Self.Subscribe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemMessages" EntityType="Self.SystemMessages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemMessagesTypes" EntityType="Self.SystemMessagesTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskCategories" EntityType="Self.TaskCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Timezone" EntityType="Self.Timezone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserDevices" EntityType="Self.UserDevices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserEmailActivation" EntityType="Self.UserEmailActivation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ChildActivitiesHistory__Child" Association="Self.FK__ChildActivitiesHistory__Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="ChildActivitiesHistory" EntitySet="ChildActivitiesHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Births_Child" Association="Self.FK_Births_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="Births" EntitySet="Births" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_User" Association="Self.FK_Child_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildActivities_Child" Association="Self.FK_ChildActivities_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="ChildActivities" EntitySet="ChildActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSolutionsActivities_Child" Association="Self.FK_ChildRealTimeSolutionsActivities_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="ChildRealTimeSolutionActivities" EntitySet="ChildRealTimeSolutionActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSolutionsActivities_RealTimeLeadingQuestion" Association="Self.FK_ChildRealTimeSolutionsActivities_RealTimeLeadingQuestion">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestion" />
+      <End Role="ChildRealTimeSolutionActivities" EntitySet="ChildRealTimeSolutionActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSolutionsActivities_RealTimeSymptoms" Association="Self.FK_ChildRealTimeSolutionsActivities_RealTimeSymptoms">
+      <End Role="RealTimeSolution" EntitySet="RealTimeSolution" />
+      <End Role="ChildRealTimeSolutionActivities" EntitySet="ChildRealTimeSolutionActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSymptomsActivities_Child" Association="Self.FK_ChildRealTimeSymptomsActivities_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="ChildRealTimeSymptomsActivities" EntitySet="ChildRealTimeSymptomsActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSymptomsActivities_RealTimeLeadingQuestion" Association="Self.FK_ChildRealTimeSymptomsActivities_RealTimeLeadingQuestion">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestion" />
+      <End Role="ChildRealTimeSymptomsActivities" EntitySet="ChildRealTimeSymptomsActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildRealTimeSymptomsActivities_RealTimeSymptoms" Association="Self.FK_ChildRealTimeSymptomsActivities_RealTimeSymptoms">
+      <End Role="RealTimeSymptoms" EntitySet="RealTimeSymptoms" />
+      <End Role="ChildRealTimeSymptomsActivities" EntitySet="ChildRealTimeSymptomsActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrudUsers_CrudUserType" Association="Self.FK_CrudUsers_CrudUserType">
+      <End Role="CrudUserType" EntitySet="CrudUserType" />
+      <End Role="CrudUsers" EntitySet="CrudUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CrudUsersLogins_CrudUsers" Association="Self.FK_CrudUsersLogins_CrudUsers">
+      <End Role="CrudUsers" EntitySet="CrudUsers" />
+      <End Role="CrudUsersLogins" EntitySet="CrudUsersLogins" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_EmailLog_User" Association="Self.Fk_EmailLog_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="EmailLog" EntitySet="EmailLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckList_Category" Association="Self.FK_MonthlyCheckList_Category">
+      <End Role="TaskCategories" EntitySet="TaskCategories" />
+      <End Role="MonthlyCheckList" EntitySet="MonthlyCheckList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckList_Language" Association="Self.FK_MonthlyCheckList_Language">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="MonthlyCheckList" EntitySet="MonthlyCheckList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckList_MonthList" Association="Self.FK_MonthlyCheckList_MonthList">
+      <End Role="MonthsList" EntitySet="MonthsList" />
+      <End Role="MonthlyCheckList" EntitySet="MonthlyCheckList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckupList_Category" Association="Self.FK_MonthlyCheckupList_Category">
+      <End Role="TaskCategories" EntitySet="TaskCategories" />
+      <End Role="MonthlyCheckupList" EntitySet="MonthlyCheckupList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckupList_Language" Association="Self.FK_MonthlyCheckupList_Language">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="MonthlyCheckupList" EntitySet="MonthlyCheckupList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlyCheckupList_Month" Association="Self.FK_MonthlyCheckupList_Month">
+      <End Role="MonthsList" EntitySet="MonthsList" />
+      <End Role="MonthlyCheckupList" EntitySet="MonthlyCheckupList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationLog_Child" Association="Self.FK_NotificationLog_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="NotificationLog" EntitySet="NotificationLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationLog_Notification" Association="Self.FK_NotificationLog_Notification">
+      <End Role="Notifications" EntitySet="Notifications" />
+      <End Role="NotificationLog" EntitySet="NotificationLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationLog_User" Association="Self.FK_NotificationLog_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="NotificationLog" EntitySet="NotificationLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notifications_NotificationTypes" Association="Self.FK_Notifications_NotificationTypes">
+      <End Role="NotificationTypes" EntitySet="NotificationTypes" />
+      <End Role="Notifications" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PregnantDetails_User" Association="Self.FK_PregnantDetails_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="PregnantDetails" EntitySet="PregnantDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProActiveInformation_PeriodTypes" Association="Self.FK_ProActiveInformation_PeriodTypes">
+      <End Role="PeriodTypes" EntitySet="PeriodTypes" />
+      <End Role="ProActiveInformation" EntitySet="ProActiveInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProActiveInformation_ProActiveTypes" Association="Self.FK_ProActiveInformation_ProActiveTypes">
+      <End Role="ProActiveTypes" EntitySet="ProActiveTypes" />
+      <End Role="ProActiveInformation" EntitySet="ProActiveInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProActiveInformation_TaskCategories" Association="Self.FK_ProActiveInformation_TaskCategories">
+      <End Role="TaskCategories" EntitySet="TaskCategories" />
+      <End Role="ProActiveInformation" EntitySet="ProActiveInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProActiveInformationInformation_Languages" Association="Self.FK_ProActiveInformationInformation_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="ProActiveInformationContent" EntitySet="ProActiveInformationContent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProActiveInformationInformation_ProActiveInformation" Association="Self.FK_ProActiveInformationInformation_ProActiveInformation">
+      <End Role="ProActiveInformation" EntitySet="ProActiveInformation" />
+      <End Role="ProActiveInformationContent" EntitySet="ProActiveInformationContent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeLeadingQuestion_PeriodTypes" Association="Self.FK_RealTimeLeadingQuestion_PeriodTypes">
+      <End Role="PeriodTypes" EntitySet="PeriodTypes" />
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeLeadingQuestion_TaskCategories" Association="Self.FK_RealTimeLeadingQuestion_TaskCategories">
+      <End Role="TaskCategories" EntitySet="TaskCategories" />
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeLeadingQuestionContent_Languages" Association="Self.FK_RealTimeLeadingQuestionContent_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="RealTimeLeadingQuestionContent" EntitySet="RealTimeLeadingQuestionContent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeLeadingQuestionContent_RealTimeSolution" Association="Self.FK_RealTimeLeadingQuestionContent_RealTimeSolution">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestion" />
+      <End Role="RealTimeLeadingQuestionContent" EntitySet="RealTimeLeadingQuestionContent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSolution_RealTimeLeadingQuestion" Association="Self.FK_RealTimeSolution_RealTimeLeadingQuestion">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestion" />
+      <End Role="RealTimeSolution" EntitySet="RealTimeSolution" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSolutionContent_Languages" Association="Self.FK_RealTimeSolutionContent_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="RealTimeSolutionContent" EntitySet="RealTimeSolutionContent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSolutionContent_RealTimeSolution" Association="Self.FK_RealTimeSolutionContent_RealTimeSolution">
+      <End Role="RealTimeSolution" EntitySet="RealTimeSolution" />
+      <End Role="RealTimeSolutionContent" EntitySet="RealTimeSolutionContent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSymptoms_RealTimeLeadingQuestion" Association="Self.FK_RealTimeSymptoms_RealTimeLeadingQuestion">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestion" />
+      <End Role="RealTimeSymptoms" EntitySet="RealTimeSymptoms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSymptomsCongratulations_Languages" Association="Self.FK_RealTimeSymptomsCongratulations_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="RealTimeSymptomsCongratulations" EntitySet="RealTimeSymptomsCongratulations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSymptomsContent_Languages" Association="Self.FK_RealTimeSymptomsContent_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="RealTimeSymptomsContent" EntitySet="RealTimeSymptomsContent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealTimeSymptomsContent_RealTimeSymptoms" Association="Self.FK_RealTimeSymptomsContent_RealTimeSymptoms">
+      <End Role="RealTimeSymptoms" EntitySet="RealTimeSymptoms" />
+      <End Role="RealTimeSymptomsContent" EntitySet="RealTimeSymptomsContent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_States_Countries" Association="Self.FK_States_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SymptomsCongratulations_RealTimeLeadingQuestionId" Association="Self.FK_SymptomsCongratulations_RealTimeLeadingQuestionId">
+      <End Role="RealTimeLeadingQuestion" EntitySet="RealTimeLeadingQuestion" />
+      <End Role="RealTimeSymptomsCongratulations" EntitySet="RealTimeSymptomsCongratulations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemMessages_Languages" Association="Self.FK_SystemMessages_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="SystemMessages" EntitySet="SystemMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemMessages_SystemMessagesTypes1" Association="Self.FK_SystemMessages_SystemMessagesTypes1">
+      <End Role="SystemMessagesTypes" EntitySet="SystemMessagesTypes" />
+      <End Role="SystemMessages" EntitySet="SystemMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskCategories_PeriodTypes" Association="Self.FK_TaskCategories_PeriodTypes">
+      <End Role="PeriodTypes" EntitySet="PeriodTypes" />
+      <End Role="TaskCategories" EntitySet="TaskCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAccountActivation_User" Association="Self.FK_UserAccountActivation_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserEmailActivation" EntitySet="UserEmailActivation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDevices_Users" Association="Self.FK_UserDevices_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserDevices" EntitySet="UserDevices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserFacebook_Users" Association="Self.FK_UserFacebook_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="FacebookProvider" EntitySet="FacebookProvider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Countries" Association="Self.FK_Users_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Genders" Association="Self.FK_Users_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Languages" Association="Self.FK_Users_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_States" Association="Self.FK_Users_States">
+      <End Role="States" EntitySet="States" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

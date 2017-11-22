@@ -1,0 +1,26 @@
+﻿@{    Layout = null; }
+<hr />
+
+<div id="detectionWayContainer@(ViewBag.id)">
+    
+    <h3>Detection Way: #@(ViewBag.id + 1)</h3>
+    <div class="form-group">
+        @Html.Label("Rank", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input disabled="disabled" type='number' id='RealTimeDetectionWayContent_@(ViewBag.id)__Rank' name='RealTimeDetectionWayContent[@(ViewBag.id)].Rank' value="0" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Solution Content", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="hidden" class="detectionWaysCounter" />
+            
+            <textarea rows="5" cols="100" style="max-width:623px" id='RealTimeDetectionWayContent_@(ViewBag.id)__DetectionWayContent' name='RealTimeDetectionWayContent[@(ViewBag.id)].DetectionWayContent' data-val="true" data-val-length="Detection Way Content cannot be longer than 500 characters." data-val-length-max="500">@(ViewBag.DetectionWayContent)</textarea>
+            <span class="field-validation-valid" data-valmsg-for="RealTimeDetectionWayContent[@(ViewBag.id)].DetectionWayContent" data-valmsg-replace="true"></span>
+         </div>
+    </div>
+    <input type="button" value="Delete" onclick="DeleteRow(event)" />
+</div>
+
+

@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RombeModelStoreContainer" CdmEntityContainer="RombeEntities">
+    <FunctionImportMapping FunctionImportName="IsVersionValid" FunctionName="RombeModel.Store.IsVersionValid" />
+    <EntitySetMapping Name="Births">
+      <EntityTypeMapping TypeName="RombeModel.Birth">
+        <MappingFragment StoreEntitySet="Births">
+          <ScalarProperty Name="PregnantId" ColumnName="PregnantId" />
+          <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Children">
+      <EntityTypeMapping TypeName="RombeModel.Child">
+        <MappingFragment StoreEntitySet="Child">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChildActivities">
+      <EntityTypeMapping TypeName="RombeModel.ChildActivity">
+        <MappingFragment StoreEntitySet="ChildActivities">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="TaskStatusId" ColumnName="TaskStatusId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="TaskTypeId" ColumnName="TaskTypeId" />
+          <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChildActivitiesHistories">
+      <EntityTypeMapping TypeName="RombeModel.ChildActivitiesHistory">
+        <MappingFragment StoreEntitySet="ChildActivitiesHistory">
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="TaskStatusId" ColumnName="TaskStatusId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="TaskTypeId" ColumnName="TaskTypeId" />
+          <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChildRealTimeSolutionActivities">
+      <EntityTypeMapping TypeName="RombeModel.ChildRealTimeSolutionActivity">
+        <MappingFragment StoreEntitySet="ChildRealTimeSolutionActivities">
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="RealTimeLeadingQuestionId" ColumnName="RealTimeLeadingQuestionId" />
+          <ScalarProperty Name="RealTimeSolutionId" ColumnName="RealTimeSolutionId" />
+          <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChildRealTimeSymptomsActivities">
+      <EntityTypeMapping TypeName="RombeModel.ChildRealTimeSymptomsActivity">
+        <MappingFragment StoreEntitySet="ChildRealTimeSymptomsActivities">
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="RealTimeLeadingQuestionId" ColumnName="RealTimeLeadingQuestionId" />
+          <ScalarProperty Name="RealTimeSymptomsId" ColumnName="RealTimeSymptomsId" />
+          <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="RombeModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="AllowedOrigin" ColumnName="AllowedOrigin" />
+          <ScalarProperty Name="RefreshTokenLifeTime" ColumnName="RefreshTokenLifeTime" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Secret" ColumnName="Secret" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="RombeModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="TimeFormat" ColumnName="TimeFormat" />
+          <ScalarProperty Name="DateFormat" ColumnName="DateFormat" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CrudUsers">
+      <EntityTypeMapping TypeName="RombeModel.CrudUser">
+        <MappingFragment StoreEntitySet="CrudUsers">
+          <ScalarProperty Name="WorkingHoursInMinutes" ColumnName="WorkingHoursInMinutes" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CrudUserTypeId" ColumnName="CrudUserTypeId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CrudUsersLogins">
+      <EntityTypeMapping TypeName="RombeModel.CrudUsersLogin">
+        <MappingFragment StoreEntitySet="CrudUsersLogins">
+          <ScalarProperty Name="LogoutTime" ColumnName="LogoutTime" />
+          <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CrudUsersLoginsId" ColumnName="CrudUsersLoginsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CrudUserTypes">
+      <EntityTypeMapping TypeName="RombeModel.CrudUserType">
+        <MappingFragment StoreEntitySet="CrudUserType">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="CrudUserTypeId" ColumnName="CrudUserTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Duplicates">
+      <EntityTypeMapping TypeName="RombeModel.Duplicate">
+        <MappingFragment StoreEntitySet="Duplicates">
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="PaginationType" ColumnName="PaginationType" />
+          <ScalarProperty Name="TaskType" ColumnName="TaskType" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailLogs">
+      <EntityTypeMapping TypeName="RombeModel.EmailLog">
+        <MappingFragment StoreEntitySet="EmailLog">
+          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmailLogId" ColumnName="EmailLogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacebookProviders">
+      <EntityTypeMapping TypeName="RombeModel.FacebookProvider">
+        <MappingFragment StoreEntitySet="FacebookProvider">
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="FacebookUserId" ColumnName="FacebookUserId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserFacebookId" ColumnName="UserFacebookId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="RombeModel.Gender">
+        <MappingFragment StoreEntitySet="Genders">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GlobalParameters">
+      <EntityTypeMapping TypeName="RombeModel.GlobalParameter">
+        <MappingFragment StoreEntitySet="GlobalParameters">
+          <ScalarProperty Name="ParameterValueInt" ColumnName="ParameterValueInt" />
+          <ScalarProperty Name="ParameterValueString" ColumnName="ParameterValueString" />
+          <ScalarProperty Name="ParameterName" ColumnName="ParameterName" />
+          <ScalarProperty Name="GlobalParameterId" ColumnName="GlobalParameterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="RombeModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="RombeModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Logger" ColumnName="Logger" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Thread" ColumnName="Thread" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlyCheckLists">
+      <EntityTypeMapping TypeName="RombeModel.MonthlyCheckList">
+        <MappingFragment StoreEntitySet="MonthlyCheckList">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="MonthId" ColumnName="MonthId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MonthlyCheckListId" ColumnName="MonthlyCheckListId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlyCheckupLists">
+      <EntityTypeMapping TypeName="RombeModel.MonthlyCheckupList">
+        <MappingFragment StoreEntitySet="MonthlyCheckupList">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="MonthId" ColumnName="MonthId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MonthlyCheckupListId" ColumnName="MonthlyCheckupListId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthsLists">
+      <EntityTypeMapping TypeName="RombeModel.MonthsList">
+        <MappingFragment StoreEntitySet="MonthsList">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MonthId" ColumnName="MonthId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationLogs">
+      <EntityTypeMapping TypeName="RombeModel.NotificationLog">
+        <MappingFragment StoreEntitySet="NotificationLog">
+          <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="NotificationLogId" ColumnName="NotificationLogId" />
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="IsSucceeded" ColumnName="IsSucceeded" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="RombeModel.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="TaskTypeId" ColumnName="TaskTypeId" />
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+          <ScalarProperty Name="NotificationTypeId" ColumnName="NotificationTypeId" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationTypes">
+      <EntityTypeMapping TypeName="RombeModel.NotificationType">
+        <MappingFragment StoreEntitySet="NotificationTypes">
+          <ScalarProperty Name="NotificationType1" ColumnName="NotificationType" />
+          <ScalarProperty Name="NotificationTypeId" ColumnName="NotificationTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PeriodTypes">
+      <EntityTypeMapping TypeName="RombeModel.PeriodType">
+        <MappingFragment StoreEntitySet="PeriodTypes">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="PeriodTypeName" ColumnName="PeriodTypeName" />
+          <ScalarProperty Name="PeriodTypeId" ColumnName="PeriodTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PregnantDetails">
+      <EntityTypeMapping TypeName="RombeModel.PregnantDetail">
+        <MappingFragment StoreEntitySet="PregnantDetails">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="PregnantDetailsId" ColumnName="PregnantDetailsId" />
+          <ScalarProperty Name="DateOfLastMenstrual" ColumnName="DateOfLastMenstrual" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProActiveInformations">
+      <EntityTypeMapping TypeName="RombeModel.ProActiveInformation">
+        <MappingFragment StoreEntitySet="ProActiveInformation">
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ProActiveTypeId" ColumnName="ProActiveTypeId" />
+          <ScalarProperty Name="PeriodTypeId" ColumnName="PeriodTypeId" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PeriodMax" ColumnName="PeriodMax" />
+          <ScalarProperty Name="PeriodMin" ColumnName="PeriodMin" />
+          <ScalarProperty Name="TaskCategoryId" ColumnName="TaskCategoryId" />
+          <ScalarProperty Name="ProActiveInformationId" ColumnName="ProActiveInformationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProActiveInformationContents">
+      <EntityTypeMapping TypeName="RombeModel.ProActiveInformationContent">
+        <MappingFragment StoreEntitySet="ProActiveInformationContent">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Information" ColumnName="Information" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="ProActiveInformationId" ColumnName="ProActiveInformationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProActiveTypes">
+      <EntityTypeMapping TypeName="RombeModel.ProActiveType">
+        <MappingFragment StoreEntitySet="ProActiveTypes">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="ProActiveTypeId" ColumnName="ProActiveTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RealTimeLeadingQuestions">
+      <EntityTypeMapping TypeName="RombeModel.RealTimeLeadingQuestion">
+        <MappingFragment StoreEntitySet="RealTimeLeadingQuestion">
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="PeriodTypeId" ColumnName="PeriodTypeId" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PeriodMax" ColumnName="PeriodMax" />
+          <ScalarProperty Name="PeriodMin" ColumnName="PeriodMin" />
+          <ScalarProperty Name="TaskCategoryId" ColumnName="TaskCategoryId" />
+          <ScalarProperty Name="RealTimeLeadingQuestionId" ColumnName="RealTimeLeadingQuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RealTimeLeadingQuestionContents">
+      <EntityTypeMapping TypeName="RombeModel.RealTimeLeadingQuestionContent">
+        <MappingFragment StoreEntitySet="RealTimeLeadingQuestionContent">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="TextForYesAnswer" ColumnName="TextForYesAnswer" />
+          <ScalarProperty Name="TextForNoAnswer" ColumnName="TextForNoAnswer" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LeadingQuestion" ColumnName="LeadingQuestion" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="RealTimeLeadingQuestionId" ColumnName="RealTimeLeadingQuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RealTimeSolutions">
+      <EntityTypeMapping TypeName="RombeModel.RealTimeSolution">
+        <MappingFragment StoreEntitySet="RealTimeSolution">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="RealTimeLeadingQuestionId" ColumnName="RealTimeLeadingQuestionId" />
+          <ScalarProperty Name="RealTimeSolutionId" ColumnName="RealTimeSolutionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RealTimeSolutionContents">
+      <EntityTypeMapping TypeName="RombeModel.RealTimeSolutionContent">
+        <MappingFragment StoreEntitySet="RealTimeSolutionContent">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="SolutionContent" ColumnName="SolutionContent" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="RealTimeSolutionId" ColumnName="RealTimeSolutionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RealTimeSymptoms">
+      <EntityTypeMapping TypeName="RombeModel.RealTimeSymptom">
+        <MappingFragment StoreEntitySet="RealTimeSymptoms">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="RealTimeLeadingQuestionId" ColumnName="RealTimeLeadingQuestionId" />
+          <ScalarProperty Name="RealTimeSymptomsId" ColumnName="RealTimeSymptomsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RealTimeSymptomsCongratulations">
+      <EntityTypeMapping TypeName="RombeModel.RealTimeSymptomsCongratulation">
+        <MappingFragment StoreEntitySet="RealTimeSymptomsCongratulations">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="SymptomsCongratulationsMessage" ColumnName="SymptomsCongratulationsMessage" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="RealTimeLeadingQuestionId" ColumnName="RealTimeLeadingQuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RealTimeSymptomsContents">
+      <EntityTypeMapping TypeName="RombeModel.RealTimeSymptomsContent">
+        <MappingFragment StoreEntitySet="RealTimeSymptomsContent">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="SymptomsContent" ColumnName="SymptomsContent" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="RealTimeSymptomsId" ColumnName="RealTimeSymptomsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefreshTokens">
+      <EntityTypeMapping TypeName="RombeModel.RefreshToken">
+        <MappingFragment StoreEntitySet="RefreshTokens">
+          <ScalarProperty Name="ProtectedTicket" ColumnName="ProtectedTicket" />
+          <ScalarProperty Name="ExpiresUtc" ColumnName="ExpiresUtc" />
+          <ScalarProperty Name="IssuedUtc" ColumnName="IssuedUtc" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="RombeModel.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="StateAbbreviation" ColumnName="StateAbbreviation" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscribes">
+      <EntityTypeMapping TypeName="RombeModel.Subscribe">
+        <MappingFragment StoreEntitySet="Subscribe">
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SubscribeId" ColumnName="SubscribeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemMessages">
+      <EntityTypeMapping TypeName="RombeModel.SystemMessage">
+        <MappingFragment StoreEntitySet="SystemMessages">
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CancelButtonText" ColumnName="CancelButtonText" />
+          <ScalarProperty Name="OKButtonText" ColumnName="OKButtonText" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="SystemMessageTypeId" ColumnName="SystemMessageTypeId" />
+          <ScalarProperty Name="MessageCode" ColumnName="MessageCode" />
+          <ScalarProperty Name="SystemMessageId" ColumnName="SystemMessageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemMessagesTypes">
+      <EntityTypeMapping TypeName="RombeModel.SystemMessagesType">
+        <MappingFragment StoreEntitySet="SystemMessagesTypes">
+          <ScalarProperty Name="SystemMessageType" ColumnName="SystemMessageType" />
+          <ScalarProperty Name="SystemMessageTypeId" ColumnName="SystemMessageTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskCategories">
+      <EntityTypeMapping TypeName="RombeModel.TaskCategory">
+        <MappingFragment StoreEntitySet="TaskCategories">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="PeriodTypeId" ColumnName="PeriodTypeId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Timezones">
+      <EntityTypeMapping TypeName="RombeModel.Timezone">
+        <MappingFragment StoreEntitySet="Timezone">
+          <ScalarProperty Name="TimezoneEnd" ColumnName="TimezoneEnd" />
+          <ScalarProperty Name="TimezoneStart" ColumnName="TimezoneStart" />
+          <ScalarProperty Name="TimezoneName" ColumnName="TimezoneName" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDevices">
+      <EntityTypeMapping TypeName="RombeModel.UserDevice">
+        <MappingFragment StoreEntitySet="UserDevices">
+          <ScalarProperty Name="OsVersion" ColumnName="OsVersion" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="PushToken" ColumnName="PushToken" />
+          <ScalarProperty Name="OsType" ColumnName="OsType" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserEmailActivations">
+      <EntityTypeMapping TypeName="RombeModel.UserEmailActivation">
+        <MappingFragment StoreEntitySet="UserEmailActivation">
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserAccountActivationKey" ColumnName="UserAccountActivationKey" />
+          <ScalarProperty Name="UserAccountActivationId" ColumnName="UserAccountActivationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="RombeModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="CampaignSource" ColumnName="CampaignSource" />
+          <ScalarProperty Name="RegistartionSource" ColumnName="RegistartionSource" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SendNotifications" ColumnName="SendNotifications" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="IsPregnant" ColumnName="IsPregnant" />
+          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="LocalTime" ColumnName="LocalTime" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

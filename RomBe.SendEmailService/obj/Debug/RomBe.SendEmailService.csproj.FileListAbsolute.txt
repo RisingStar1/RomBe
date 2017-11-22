@@ -1,0 +1,1 @@
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.SendEmailService\bin\Debug\RomBe.SendEmailService.exe.config

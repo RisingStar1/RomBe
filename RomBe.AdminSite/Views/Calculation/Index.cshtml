@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/minified/i18n/jquery-ui-i18n.min.js"></script>
+
+</head>
+<body>
+    <div>
+        @using (Ajax.BeginForm("Index", "Calculation", new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "resultArea" }))
+        {
+            <label>Start Date</label>
+
+            <input class="date-picker" name="startDate" />
+
+            <label>End Date</label>
+
+            <input class="date-picker" name="endDate" />
+
+
+            <br />
+            <input type="submit" name="QueryAllButton" value="Query All" />
+            <input type="submit" name="QueryDateButton" value="Query Date" />
+        }
+
+        <div id="resultArea">
+            @if (ViewBag.SpecificDateResult != null)
+            {
+
+                <table border="1" style="border-collapse:collapse;border:1px solid #FFCC00;color:#000000;width:100%" cellpadding="3" cellspacing="3">
+                    <tr style="background-color:gray">
+                        <td>Period</td>
+                        <td>Tips</td>
+                        <td>Q&A</td>
+                        <td>RealTime</td>
+                        <td>Tips Payment</td>
+                        <td>Q&A Payment</td>
+                        <td>RealTime Payment</td>
+                        <td>Total Payment</td>
+                    </tr>
+                    <tr>
+                        <td>@ViewBag.SpecificDateResult[0].Date</td>
+                        <td>@ViewBag.SpecificDateResult[0].Tips</td>
+                        <td>@ViewBag.SpecificDateResult[0].Qa</td>
+                        <td>@ViewBag.SpecificDateResult[0].RealTime</td>
+                        <td>@ViewBag.SpecificDateResult[0].TipsPayment</td>
+                        <td>@ViewBag.SpecificDateResult[0].QaPayment</td>
+                        <td>@ViewBag.SpecificDateResult[0].RealTimePayment</td>
+                        <td>@ViewBag.SpecificDateResult[0].TotalPayment</td>
+                    </tr>
+                </table>
+            }
+            @if (ViewBag.AllDatesResult != null)
+            {
+
+                <table border="1" style="border-collapse:collapse;border:1px solid #FFCC00;color:#000000;width:100%" cellpadding="3" cellspacing="3">
+                    <tr style="background-color:gray">
+                        <td>Month</td>
+                        <td>Tips</td>
+                        <td>Q&A</td>
+                        <td>RealTime</td>
+                        <td>Tips Payment</td>
+                        <td>Q&A Payment</td>
+                        <td>RealTime Payment</td>
+                        <td>Total Payment</td>
+                    </tr>
+                    @foreach (var item in ViewBag.AllDatesResult)
+                    {
+                        <tr>
+                            <td>@item.Date</td>
+                            <td>@item.Tips</td>
+                            <td>@item.Qa</td>
+                            <td>@item.RealTime</td>
+                            <td>@item.TipsPayment</td>
+                            <td>@item.QaPayment</td>
+                            <td>@item.RealTimePayment</td>
+                            <td>@item.TotalPayment</td>
+                        </tr>
+                    }
+
+                </table>
+            }
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<!-- Code to wire up your DatePicker -->
+<script type="text/javascript">
+    $(function () {
+        // This will make every element with the class "date-picker" into a DatePicker element
+        $('.date-picker').datepicker($.datepicker.regional["he"]);
+    })
+</script>

@@ -1,0 +1,12 @@
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\bin\Release\RomBe.Helpers.dll
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\bin\Release\RomBe.Helpers.pdb
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\obj\Release\RomBe.Helpers.dll
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\obj\Release\RomBe.Helpers.pdb
+C:\Users\Almog\documents\visual studio 2013\Projects\RomBe\RomBe.Helpers\obj\Release\RomBe.Helpers.csprojResolveAssemblyReference.cache
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\bin\Release\Newtonsoft.Json.dll
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\bin\Release\Newtonsoft.Json.xml
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\bin\Release\Microsoft.ApplicationInsights.dll
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\bin\Release\Microsoft.ApplicationInsights.xml
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\bin\Release\StackExchange.Redis.dll
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\bin\Release\StackExchange.Redis.pdb
+C:\Users\Almog\Documents\Visual Studio 2013\Projects\RomBe\RomBe.Helpers\bin\Release\StackExchange.Redis.xml

@@ -1,0 +1,26 @@
+﻿@{    Layout = null; }
+<hr />
+
+<div id="detectionWayContainer@(ViewBag.id)">
+    
+    <h3>Detection Way: #@(ViewBag.id + 1)</h3>
+    <div class="form-group">
+        @Html.Label("Rank", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input disabled="disabled" type='number' id='RealTimeSymptomsContent_@(ViewBag.id)__Rank' name='RealTimeSymptomsContent[@(ViewBag.id)].Rank' value="0" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Solution Content", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="hidden" class="detectionWaysCounter" />
+            
+            <textarea rows="5" cols="100" style="max-width:623px" id='RealTimeSymptomsContent_@(ViewBag.id)__SymptomsContent' name='RealTimeSymptomsContent[@(ViewBag.id)].SymptomsContent' data-val="true" data-val-length="Detection Way Content cannot be longer than 570 characters." data-val-length-max="565">@(ViewBag.SymptomsContent)</textarea>
+            <span class="field-validation-valid" data-valmsg-for="RealTimeSymptomsContent[@(ViewBag.id)].SymptomsContent" data-valmsg-replace="true"></span>
+         </div>
+    </div>
+    <input type="button" value="Delete" onclick="DeleteRow(event)" />
+</div>
+
+

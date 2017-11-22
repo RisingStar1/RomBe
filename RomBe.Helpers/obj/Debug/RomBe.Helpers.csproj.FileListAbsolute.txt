@@ -1,0 +1,12 @@
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\bin\Debug\RomBe.Helpers.dll
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\bin\Debug\RomBe.Helpers.pdb
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\bin\Debug\Microsoft.ApplicationInsights.dll
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\bin\Debug\Newtonsoft.Json.dll
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\bin\Debug\StackExchange.Redis.dll
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\bin\Debug\Microsoft.ApplicationInsights.xml
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\bin\Debug\Newtonsoft.Json.xml
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\bin\Debug\StackExchange.Redis.pdb
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\bin\Debug\StackExchange.Redis.xml
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\obj\Debug\RomBe.Helpers.csprojResolveAssemblyReference.cache
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\obj\Debug\RomBe.Helpers.dll
+C:\Users\cohen\Desktop\RomBe\RomBe.Helpers\obj\Debug\RomBe.Helpers.pdb
